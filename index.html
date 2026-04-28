@@ -1032,7 +1032,11 @@ function renderYouTubeShowcase(){
   ytGrid.innerHTML = cards;
 }
 
-function track(e,p){window.PSAAnalytics.trackEvent(e,p||{});}
+function track(e,p){
+  if(window.PSAAnalytics && typeof window.PSAAnalytics.trackEvent==='function'){
+    window.PSAAnalytics.trackEvent(e,p||{});
+  }
+}
 function setMsg(t,isErr){const m=document.getElementById('msg');m.style.color=isErr?'#b42318':'#157a38';m.innerText=t;}
 
 function getComboCoreCourses(){
