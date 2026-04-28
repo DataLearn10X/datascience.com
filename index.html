@@ -56,8 +56,11 @@
     .cart-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:16px 0}
     .chk{display:flex;gap:8px;align-items:flex-start;background:#ffffff;border:1px solid #bfdbfe;border-radius:12px;padding:11px;color:#0f172a;font-weight:700;box-shadow:0 6px 14px rgba(15,23,42,.06)}
     .chk input{margin-top:3px}
-    .chk.combo-offer{background:#ffffff;border-color:#93c5fd;color:#0f172a;font-weight:700}
-    .chk.combo-offer b{color:#0f172a}
+    .chk.combo-offer{font-weight:700}
+    .chk.combo-core{background:linear-gradient(135deg,#dcfce7,#bbf7d0);border-color:#22c55e;color:#14532d}
+    .chk.combo-core b{color:#14532d}
+    .chk.combo-all{background:linear-gradient(135deg,#ffedd5,#fed7aa);border-color:#f97316;color:#7c2d12}
+    .chk.combo-all b{color:#7c2d12}
     .form{margin-top:10px;text-align:center}
     .form input,.form select{width:92%;max-width:380px;padding:12px;margin:6px;border:1px solid rgba(134,187,255,.38);border-radius:8px;background:rgba(8,19,42,.7);color:#e8f2ff}
     .total{font-size:22px;font-weight:800;color:#065f46;text-align:center;margin:10px 0}
@@ -83,7 +86,7 @@
     .logo-marquee:hover .logo-track{animation-play-state:paused}
     @media (prefers-reduced-motion:reduce){.logo-track{animation:none;transform:none}}
     .ads-section{padding:26px 16px 10px}
-    .ads-slider{max-width:1120px;margin:0 auto;position:relative;border-radius:18px;overflow:hidden;box-shadow:0 18px 38px rgba(2,6,23,.35);background:#ffffff;cursor:pointer;border:1px solid rgba(126,175,245,.32);padding:8px}
+    .ads-slider{max-width:1120px;margin:0 auto;position:relative;border-radius:18px;overflow:hidden;box-shadow:0 18px 38px rgba(2,6,23,.35);background:#ffffff;cursor:default;border:1px solid rgba(126,175,245,.32);padding:8px}
     .ads-slide{width:100%;aspect-ratio:1440/1086;height:auto;display:block;object-fit:cover;object-position:center;border-radius:12px;border:2px solid #ffffff;background:#fff;opacity:1;transition:opacity .45s ease}
     .ads-overlay{position:absolute;inset:auto 8px 8px 8px;padding:14px 16px;background:linear-gradient(to top,rgba(2,6,23,.68),rgba(2,6,23,0));color:#fff;font-weight:600;font-size:14px;border-radius:0 0 12px 12px}
     .ads-dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
@@ -233,8 +236,11 @@
     #buy-section .buy-wrap h2{color:#0b1f4a!important;font-weight:800!important;text-shadow:none!important}
     #buy-section .buy-wrap .sub{color:#1e3a8a!important;font-weight:600!important}
     .chk{background:#ffffff!important;border-color:#bfdbfe!important;color:#0f172a!important;font-weight:700!important}
-    .chk.combo-offer{background:#ffffff!important;border-color:#93c5fd!important;color:#0f172a!important}
-    .chk.combo-offer b{color:#0f172a!important}
+    .chk.combo-offer{font-weight:700!important}
+    .chk.combo-core{background:linear-gradient(135deg,#dcfce7,#bbf7d0)!important;border-color:#22c55e!important;color:#14532d!important}
+    .chk.combo-core b{color:#14532d!important}
+    .chk.combo-all{background:linear-gradient(135deg,#ffedd5,#fed7aa)!important;border-color:#f97316!important;color:#7c2d12!important}
+    .chk.combo-all b{color:#7c2d12!important}
     .total{color:#065f46!important;font-weight:800!important}
     footer{background:linear-gradient(135deg,#0b1220,#12335f,#2563eb)!important}
   </style>
@@ -257,8 +263,8 @@
 
   <!-- SECTION: SECTION .ads-section -->
   <section class="ads-section" aria-label="Latest offers">
-    <div id="adsSlider" class="ads-slider" role="button" tabindex="0" aria-label="Advertisement slider. Click to explore courses.">
-      <img id="adsSlideImage" class="ads-slide" src="dl1x.png" alt="DataLearn10X advertisement" loading="eager">
+    <div id="adsSlider" class="ads-slider" aria-label="Advertisement slider showcasing latest offers.">
+      <img id="adsSlideImage" class="ads-slide" src="dl10x.png" alt="DataLearn10X advertisement" loading="eager">
       <div class="ads-overlay">Special Offers</div>
     </div>
     <div id="adsDots" class="ads-dots" aria-hidden="true"></div>
@@ -733,8 +739,8 @@
         <label class="chk"><input type="checkbox" class="courseChk" value="Cheat Sheets and Interview Questions" data-price="19"> Cheat Sheets and Interview Questions (₹19)</label>
         <label class="chk"><input type="checkbox" class="courseChk" value="20000+ HR Emails" data-price="19"> 20000+ HR Emails (₹19)</label>
         <label class="chk"><input type="checkbox" class="courseChk" value="Projects Only Course" data-price="99"> Projects (MRP ₹1000 | Offer ₹99)</label>
-        <label class="chk combo-offer"><input type="checkbox" id="comboCoreChk" value="Data Analytics Combo Core" data-price="1"> <b>Combo 1 (Core Analytics) ₹1</b><br><small style="font-weight:500;color:#475569">Excludes: AWS, Learn AI, MongoDB, Git &amp; GitHub</small></label>
-        <label class="chk combo-offer"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="2"> <b>Combo 2 (All Courses) ₹2</b><br><small style="font-weight:500;color:#475569">Includes all available paid courses</small></label>
+        <label class="chk combo-offer combo-core"><input type="checkbox" id="comboCoreChk" value="Data Analytics Combo Core" data-price="1"> <b>Combo 1 (Core Analytics) ₹1</b><br><small style="font-weight:500;color:#475569">Excludes: AWS, Learn AI, MongoDB, Git &amp; GitHub</small></label>
+        <label class="chk combo-offer combo-all"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="2"> <b>Combo 2 (All Courses) ₹2</b><br><small style="font-weight:500;color:#475569">Includes all available paid courses</small></label>
       </div>
 
       <div class="total" id="totalText">Total: ₹0</div>
@@ -909,7 +915,6 @@ const comboAllChk = document.getElementById('comboAllChk');
 const individualChecks = Array.from(document.querySelectorAll('.courseChk'));
 const CORE_COMBO_EXCLUDED = ['AWS Full Stack Development','Learn AI','MongoDB','Git & GitHub'];
 const offerPill = document.getElementById('offerPill');
-const exploreSection = document.getElementById('explore-courses');
 const whatsappLink=document.getElementById('whatsappLink');
 if(whatsappLink){
   whatsappLink.href='https://wa.me/'+encodeURIComponent(WHATSAPP_NUMBER)+'?text='+encodeURIComponent(WHATSAPP_TEXT);
@@ -934,10 +939,8 @@ function resolveAdSrc(item){
   return AD_IMAGES_BASE_URL.replace(/\/$/,'') + '/' + safePath;
 }
 
-function scrollToExploreFromAd(){
-  if(!exploreSection) return;
-  exploreSection.scrollIntoView({behavior:'smooth'});
-  track('ad_clicked',{target:'explore_courses',index:adsIndex});
+function logAdInteraction(){
+  track('ad_viewed',{index:adsIndex});
 }
 
 function validateAdSources(items){
@@ -979,15 +982,10 @@ function showAd(index,manual){
     adsSlideImage.style.opacity='1';
     renderAdDots();
     if(manual) track('ad_slide_manual',{index:adsIndex});
+    logAdInteraction();
   },180);
 }
 
-if(adsSlider){
-  adsSlider.addEventListener('click',scrollToExploreFromAd);
-  adsSlider.addEventListener('keydown',function(e){
-    if(e.key==='Enter' || e.key===' '){ e.preventDefault(); scrollToExploreFromAd(); }
-  });
-}
 validateAdSources(AD_IMAGES).then(function(validImages){
   activeAdImages = validImages.slice(0, MAX_ADS);
   if(activeAdImages.length){
