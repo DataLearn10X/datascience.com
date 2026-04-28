@@ -4,11 +4,15 @@ window.DL10X_CONFIG = {
   WHATSAPP_TEXT: "Hi DataLearn10X, I want details about courses",
   AD_IMAGES_BASE_URL: "ads",
   AD_IMAGES: [
-    "ad1.jpg",
-    "ad3.jpg",
-    "ad4.jpg",
     "ad5.png",
-    "ad6.png"
+    "ax1 (1).png",
+    "ax1 (2).png",
+    "ax1 (3).png",
+    "ax1 (4).png",
+    "ax1 (5).png",
+    "ax1 (6).png",
+    "ax1 (7).png",
+    "ax1 (8).png",
   ],
   SOCIAL_LINKS: {
     linkedin: "https://www.linkedin.com/",
