@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SQL (MySQL) Course - DataLearn10X</title>
+<link rel="icon" type="image/png" href="dl10x.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Master SQL and MySQL fundamentals for analytics, querying, and database-driven problem solving.">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="config.js" defer></script>
+<script src="analytics.js" defer></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f4fb;
+    color: #1f2f46;
+  }
+
+  /* HEADER */
+  header {
+    position: relative;
+    padding: 60px 20px 48px;
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(135deg, #060e1c 0%, #0f2a52 45%, #1a4ba8 100%);
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: #f0f4fb;
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .home-logo {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+  .home-logo img { height: 36px; width: auto; display: block; }
+
+  .header-icon {
+    width: 88px;
+    height: 88px;
+    object-fit: contain;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.12);
+    padding: 8px;
+    margin-bottom: 14px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  header h1 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 50px;
+    padding: 5px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    backdrop-filter: blur(6px);
+  }
+
+  /* LAYOUT */
+  .wrap {
+    max-width: 1060px;
+    margin: auto;
+    padding: 36px 16px 60px;
+  }
+
+  /* TOP CARDS */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 22px 24px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  .card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #1a3060;
+  }
+  .card ul {
+    padding-left: 18px;
+    line-height: 1.85;
+    font-size: 0.92rem;
+    color: #374151;
+  }
+
+  /* SECTION HEADING */
+  .section-heading {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0f2a52;
+    margin: 32px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-heading::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, #2563eb22, transparent);
+    border-radius: 2px;
+  }
+
+  /* ROADMAP */
+  .roadmap {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .roadmap-item {
+    display: flex;
+    gap: 0;
+    position: relative;
+  }
+  /* vertical line */
+  .roadmap-item:not(:last-child) .step-line {
+    position: absolute;
+    left: 22px;
+    top: 46px;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #2563eb40, #2563eb10);
+    z-index: 0;
+  }
+  .step-num {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #1a4ba8, #2563eb);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(37,99,235,0.35);
+    position: relative;
+    z-index: 1;
+    margin-top: 2px;
+  }
+  .step-body {
+    flex: 1;
+    background: #fff;
+    border-radius: 14px;
+    margin: 0 0 14px 14px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.05);
+    border-left: 3px solid #2563eb;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .step-body:hover { box-shadow: 0 6px 20px rgba(37,99,235,0.12); }
+
+  .step-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+    gap: 10px;
+  }
+  .step-header h4 {
+    font-size: 0.97rem;
+    font-weight: 600;
+    color: #1a3060;
+    margin: 0;
+    flex: 1;
+  }
+  .chevron {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    background: #eef3ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background 0.2s;
+  }
+  .chevron svg {
+    width: 12px;
+    height: 12px;
+    stroke: #2563eb;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.2s;
+  }
+  .step-body.open .chevron {
+    transform: rotate(180deg);
+    background: #2563eb;
+  }
+  .step-body.open .chevron svg { stroke: #fff; }
+
+  .step-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.25s ease;
+  }
+  .step-body.open .step-tags {
+    max-height: 700px;
+    padding: 0 20px 18px;
+  }
+  .step-desc {
+    width: 100%;
+    font-size: 0.83rem;
+    color: #4b5563;
+    line-height: 1.65;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #e5e7eb;
+  }
+  .step-desc strong { color: #1a3060; font-weight: 600; }
+  .step-desc code {
+    background: #eef3ff;
+    color: #2563eb;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+    border: 1px solid #dbeafe;
+  }
+  .session-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff7ed;
+    border: 1.5px solid #fed7aa;
+    border-radius: 50px;
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #c2410c;
+    margin-bottom: 14px;
+  }
+  .tag {
+    display: inline-block;
+    background: #eef3ff;
+    color: #2563eb;
+    border-radius: 6px;
+    padding: 3px 10px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    border: 1px solid #dbeafe;
+  }
+  .tag.python {
+    background: #fef3c7;
+    color: #92400e;
+    border-color: #fde68a;
+  }
+  .tag.operator {
+    background: #f0fdf4;
+    color: #166534;
+    border-color: #bbf7d0;
+  }
+  .tag.advanced {
+    background: #fdf4ff;
+    color: #7e22ce;
+    border-color: #e9d5ff;
+  }
+
+  /* STATUS CARD */
+  .status-card {
+    background: linear-gradient(135deg, #eff6ff, #fff);
+    border: 1.5px solid #bfdbfe;
+    border-radius: 16px;
+    padding: 28px 28px;
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .status-text h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1a3060;
+    margin-bottom: 6px;
+  }
+  .status-text p {
+    font-size: 0.9rem;
+    color: #4b5563;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    border-radius: 50px;
+    padding: 7px 18px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #166534;
+    margin-bottom: 6px;
+  }
+  .status-pill span.dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.35); }
+  }
+  .btn-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background: #2563eb;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s;
+    box-shadow: 0 3px 10px rgba(37,99,235,0.3);
+  }
+  .btn:hover { background: #1d4ed8; transform: translateY(-1px); }
+  .btn.dark { background: #1f3b78; box-shadow: 0 3px 10px rgba(31,59,120,0.25); }
+  .btn.dark:hover { background: #162f62; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    font-size: 13px;
+    color: #6b7280;
+    padding: 28px 16px;
+    border-top: 1px solid #e5e7eb;
+    background: #fff;
+  }
+  footer a { color: #2563eb; text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 560px) {
+    .status-card { flex-direction: column; }
+    .step-body { padding: 14px 16px; }
+  }
+</style>
+<link rel="stylesheet" href="theme_professional.css">
+<link rel="stylesheet" href="course_topics.css">
+</head>
+<body class="course-page course-sql">
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" aria-label="DataLearn10X Home" class="home-logo">
+    <img src="dl10x.png" alt="DataLearn10X logo">
+  </a>
+  <img class="header-icon" src="https://img.icons8.com/fluency/96/mysql-logo.png" alt="SQL (MySQL) logo">
+  <h1>SQL (MySQL) Course</h1>
+  <div class="header-badge">✅ Now Live — Enroll Today</div>
+</header>
+
+<div class="wrap">
+
+  <!-- TOP CARDS -->
+  <div class="grid">
+    <div class="card">
+      <h3>🚀 Why SQL (MySQL)?</h3>
+      <ul>
+        <li>SQL is mandatory for data analytics &amp; backend roles</li>
+        <li>MySQL is beginner-friendly and industry-standard</li>
+        <li>Strong SQL skills help crack analyst interviews</li>
+        <li>Used in real-world systems at every company scale</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>📦 What You Will Get</h3>
+      <div class="session-badge">🎬 Recorded Sessions Available</div>
+      <ul>
+        <li>🎬 Recorded Video Sessions (watch anytime)</li>
+        <li>📘 Structured PDF Notes</li>
+        <li>🎥 Step-by-step Video Lessons</li>
+        <li>❓ Interview Questions &amp; Answers</li>
+        <li>🧪 Hands-on Practice Projects</li>
+        <li>🐍 SQL + Python Integration Labs</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="section-heading">🗺️ Complete Course Roadmap</div>
+  <div class="roadmap">
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>Introduction to Databases &amp; Tables</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag">What is a Database?</span>
+          <span class="tag">Tables &amp; Schemas</span>
+          <span class="tag">Rows &amp; Columns</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> Start from absolute zero. You'll understand what a database is — think of it as a smart, organised filing cabinet that stores millions of rows of data and lets you search or filter instantly. You'll see how data is stored in <strong>tables</strong> made up of rows (records) and columns (fields), and what a <strong>schema</strong> is (the blueprint that defines table structure). You'll also understand the difference between a Database and a Spreadsheet — and why companies always choose databases for real data. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>Need of SQL</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag">Why SQL?</span>
+          <span class="tag">SQL vs Spreadsheets</span>
+          <span class="tag">Real-world use cases</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> SQL (Structured Query Language) is the universal language for talking to databases. While Excel crashes with 100,000 rows, SQL handles <strong>millions of rows in seconds</strong>. You'll see exactly why Data Analysts, Business Analysts, Data Scientists, and Backend Developers all need SQL — and look at real job descriptions that list SQL as a required skill. By the end, you'll be motivated and clear on how SQL fits into your learning journey. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>SQL with Command Prompt</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag">USE</span>
+          <span class="tag">DESCRIBE</span>
+          <span class="tag">SHOW DATABASES</span>
+          <span class="tag">SHOW TABLES</span>
+          <span class="tag">CREATE TABLE</span>
+          <span class="tag">Single Row INSERT</span>
+          <span class="tag">Load Data from File</span>
+          <span class="tag">Data Selection</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> Get hands-on with MySQL using the command prompt — no GUI, just you and the terminal. You'll use <code>USE db_name</code> to select a database, <code>SHOW DATABASES</code> and <code>SHOW TABLES</code> to explore what exists, and <code>DESCRIBE table_name</code> to see a table's column structure. You'll also <strong>create your first real table</strong> with proper data types (INT, VARCHAR, DATE), insert a single row of data, and even load a bulk CSV file into MySQL using <code>LOAD DATA INFILE</code>. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>Data Definition Language (DDL)</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag">CREATE TABLE</span>
+          <span class="tag">ADD</span>
+          <span class="tag">MODIFY</span>
+          <span class="tag">DROP</span>
+          <span class="tag">DROP TABLE</span>
+          <span class="tag">TRUNCATE</span>
+          <span class="tag">DELETE</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> DDL commands define and change the <strong>structure</strong> of your database — not the data inside it. You'll use <code>CREATE TABLE</code> to design a table from scratch, <code>ADD</code> to add a new column, and <code>MODIFY</code> to change a column's data type. You'll also understand a critical difference that trips up beginners: <strong>TRUNCATE vs DELETE</strong> — TRUNCATE wipes all rows instantly and can't be rolled back, while DELETE removes specific rows and can be undone. <code>DROP TABLE</code> removes the entire table permanently. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>Data Control Language (DCL)</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag">GRANT</span>
+          <span class="tag">REVOKE</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> In real companies, not everyone should have the same level of database access. DCL lets you control <strong>who can do what</strong>. <code>GRANT</code> gives a user specific permissions — for example, allowing a junior analyst to only SELECT (read) data without being able to modify or delete it. <code>REVOKE</code> takes those permissions away. You'll also learn about privilege levels — database-level, table-level, and column-level — which are essential knowledge for database admin and security roles. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">6</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>Data Manipulation Language (DML)</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag">INSERT</span>
+          <span class="tag">UPDATE</span>
+          <span class="tag">DELETE</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> DML commands work on the <strong>data inside tables</strong> — not the structure. <code>INSERT INTO</code> adds new rows, <code>UPDATE</code> modifies existing rows (always use <code>WHERE</code> or you'll update every row!), and <code>DELETE FROM</code> removes specific rows. A key tip: always write and test your <code>WHERE</code> clause with a <code>SELECT</code> first before running <code>UPDATE</code> or <code>DELETE</code> — this is a professional habit that saves you from accidents in real databases. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">7</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>SQL with Python — Part 1</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag python">Create Database</span>
+          <span class="tag python">Create Table</span>
+          <span class="tag python">Single Row INSERT</span>
+          <span class="tag python">Multiple Row INSERT</span>
+          <span class="tag python">Order of Keywords</span>
+          <span class="tag python">SELECT</span>
+          <span class="tag python">WHERE</span>
+          <span class="tag python">ORDER BY</span>
+          <span class="tag python">GROUP BY</span>
+          <span class="tag python">HAVING</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> Here SQL meets Python using the <code>mysql-connector-python</code> library. You'll connect Python to your MySQL server, create databases and tables via Python code, and insert both single and multiple rows using <code>executemany()</code>. Then you'll write the core queries: <code>SELECT</code> to fetch data, <code>WHERE</code> to filter rows, <code>ORDER BY</code> to sort results, <code>GROUP BY</code> to group and summarise, and <code>HAVING</code> to filter groups (think of HAVING as a WHERE that works after grouping). You'll also learn the <strong>correct order SQL keywords must be written</strong> — a common interview question. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">8</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>SQL with Python — Part 2</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag python">UPDATE</span>
+          <span class="tag python">LIMIT</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> Build on Part 1 by running <code>UPDATE</code> statements through Python to modify existing records in MySQL. You'll also master <code>LIMIT</code> — a crucial clause that restricts how many rows a query returns. <code>LIMIT</code> is essential when working with large tables (e.g. "show me the top 10 orders") and is used heavily in dashboards and reports. Combined with <code>ORDER BY</code>, you can easily fetch the top or bottom N records from any dataset. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">9</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>SQL with Python — Part 3</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag python">IN</span>
+          <span class="tag python">BETWEEN</span>
+          <span class="tag python">LIKE</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> Three powerful filtering keywords used in almost every real-world SQL query. <code>IN</code> lets you match multiple values at once — e.g. <code>WHERE city IN ('Mumbai', 'Delhi', 'Pune')</code> instead of writing three OR conditions. <code>BETWEEN</code> filters a range — e.g. <code>WHERE salary BETWEEN 30000 AND 60000</code>. <code>LIKE</code> does pattern matching using wildcards: <code>%</code> matches any number of characters and <code>_</code> matches exactly one — e.g. <code>WHERE name LIKE 'A%'</code> returns all names starting with A. All practised through Python. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">10</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>Comparison Operators</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag operator">= &nbsp;Equal to</span>
+          <span class="tag operator">&gt; &nbsp;Greater than</span>
+          <span class="tag operator">&lt; &nbsp;Less than</span>
+          <span class="tag operator">&gt;= &nbsp;Greater than or equal</span>
+          <span class="tag operator">&lt;= &nbsp;Less than or equal</span>
+          <span class="tag operator">&lt;&gt; &nbsp;Not equal to</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> Comparison operators are the backbone of every <code>WHERE</code> clause. <code>=</code> checks exact equality, <code>&lt;&gt;</code> (or <code>!=</code>) checks inequality. <code>&gt;</code> and <code>&lt;</code> filter ranges of numbers or dates. You'll practise with real examples like: find all employees with salary <code>&gt; 50000</code>, find products where stock <code>&lt;= 10</code>, find orders placed <code>&gt;= '2024-01-01'</code>. These six operators appear in <strong>every single SQL query</strong> you'll ever write professionally. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">11</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>Logical Operators</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag operator">AND</span>
+          <span class="tag operator">OR</span>
+          <span class="tag operator">NOT</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> Combine multiple conditions in one query. <code>AND</code> requires <strong>all</strong> conditions to be true — e.g. <code>WHERE city = 'Delhi' AND salary &gt; 40000</code>. <code>OR</code> requires <strong>at least one</strong> condition to be true. <code>NOT</code> inverts a condition — e.g. <code>WHERE NOT department = 'HR'</code>. A key concept is <strong>operator precedence</strong>: SQL evaluates AND before OR, so always use parentheses to make your logic clear — e.g. <code>WHERE (city = 'Delhi' OR city = 'Mumbai') AND salary &gt; 50000</code>. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">12</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>Aggregate Functions</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag">COUNT</span>
+          <span class="tag">MIN</span>
+          <span class="tag">MAX</span>
+          <span class="tag">AVG</span>
+          <span class="tag">SUM</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> Aggregate functions let you summarise large amounts of data into a single meaningful number. <code>COUNT(*)</code> tells you how many rows exist, <code>SUM(salary)</code> totals all salaries, <code>AVG(marks)</code> calculates the average, <code>MIN</code> and <code>MAX</code> find the lowest and highest values. These are almost always used with <strong>GROUP BY</strong> — e.g. "total sales per region" or "average salary per department". You'll also learn <code>COUNT(DISTINCT col)</code> to count unique values — a very common interview question. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">13</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>Joins</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag advanced">INNER JOIN</span>
+          <span class="tag advanced">LEFT JOIN</span>
+          <span class="tag advanced">RIGHT JOIN</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> Joins are the most tested SQL topic in every data analyst interview — and for good reason. Real databases have data spread across multiple tables that you need to combine. <strong>INNER JOIN</strong> returns only rows where there's a match in both tables. <strong>LEFT JOIN</strong> returns all rows from the left table, filling NULL for rows that have no match on the right — useful when you want to see all customers, even those with no orders. <strong>RIGHT JOIN</strong> does the opposite. You'll practise on real table pairs like Customers + Orders and Employees + Departments. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-line"></div>
+      <div class="step-num">14</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>Parent &amp; Child Tables (Constraints)</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag advanced">Primary Key</span>
+          <span class="tag advanced">Foreign Key</span>
+          <span class="tag advanced">Parent Table</span>
+          <span class="tag advanced">Child Table</span>
+          <span class="tag advanced">UNIQUE Constraint</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> Good database design prevents data errors before they happen. A <strong>Primary Key</strong> uniquely identifies every row in a table — no two rows can have the same value (e.g. Employee ID, Order ID). A <strong>Foreign Key</strong> links a child table back to a parent table — e.g. an Orders table has a <code>customer_id</code> Foreign Key that references the Customers table. This relationship ensures you can't add an order for a customer that doesn't exist. The <strong>UNIQUE</strong> constraint ensures a column (like Email) has no duplicates. These concepts directly enable Joins. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-item">
+      <div class="step-num">15</div>
+      <div class="step-body">
+        <div class="step-header">
+          <h4>Sub Queries / Nested Queries / Inner Queries</h4>
+          <div class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="step-tags">
+          <span class="tag advanced">Subquery Basics</span>
+          <span class="tag advanced">Nested SELECT</span>
+          <span class="tag advanced">Correlated Subqueries</span>
+          <span class="tag advanced">Subquery in WHERE</span>
+          <span class="tag advanced">Subquery in FROM</span>
+          <p class="step-desc">
+            <strong>What you'll learn:</strong> A subquery is a query inside another query — it lets you answer complex questions in one step. Example: "Find all employees who earn more than the average salary" — you can't use <code>AVG()</code> directly in <code>WHERE</code>, but you can nest it: <code>WHERE salary &gt; (SELECT AVG(salary) FROM employees)</code>. You'll learn subqueries in <code>WHERE</code> (to filter using a computed value), in <code>FROM</code> (to create a virtual table), and <strong>correlated subqueries</strong> that reference the outer query row by row. This is an advanced topic that separates strong SQL writers from average ones. 🎬 <strong>Recorded session included.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /roadmap -->
+
+  <!-- STATUS CARD -->
+  <div class="status-card">
+    <div class="status-text">
+      <div class="status-pill"><span class="dot"></span>Live Now</div>
+      <h3>Start Learning SQL (MySQL) Today</h3>
+      <p>Get instant access to all 15 modules with <strong>recorded video sessions</strong> — watch at your own pace, anytime. Includes PDF notes, interview questions, Python integration labs, and hands-on practice projects. Everything you need to master SQL from scratch.</p>
+      <div class="btn-group">
+        <a class="btn" href="index.html?add=SQL%20(MySQL)#buy-section">Enroll Now →</a>
+        <a class="btn dark" href="index.html">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 <strong>DataLearn10X</strong> &nbsp;|&nbsp; <a href="index.html">Home</a>
+</footer>
+
+<script>
+  if (typeof PSAAnalytics !== 'undefined') {
+    PSAAnalytics.trackEvent('course_page_viewed', { course: 'SQL (MySQL)' });
+  }
+
+  document.querySelectorAll('.step-header').forEach(function(header) {
+    header.addEventListener('click', function() {
+      var body = header.closest('.step-body');
+      body.classList.toggle('open');
+    });
+  });
+</script>
+<script src="course_topics.js" defer></script>
+</body>
+</html>

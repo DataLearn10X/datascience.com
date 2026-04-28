@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- SECTION: HEAD (meta, styles, scripts) -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join DataLearn10X job-ready data analytics programs with practical projects in Excel, Python, Power BI, Tableau, SQL, and ML.">
+  <title>DataLearn10X - Data Analytics Programs</title>
+<link rel="icon" type="image/png" href="dl10x.png">
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="analytics.js" defer></script>
+  <script src="config.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Poppins',sans-serif;background:radial-gradient(circle at 12% 10%,#23396f 0,#0b1020 38%,#070b14 100%);color:#dfe9ff;line-height:1.5;min-height:100vh}
+    body:before{content:"";position:fixed;inset:0;background:linear-gradient(120deg,rgba(90,162,255,.08),rgba(9,255,221,.05),rgba(153,108,255,.08));pointer-events:none;z-index:-2}
+    body:after{content:"";position:fixed;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1px, transparent 1px);background-size:34px 34px;opacity:.2;pointer-events:none;z-index:-1}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#0b1220,#12335f,#2563eb);backdrop-filter:blur(5px);color:#fff;text-align:center;padding:96px 16px 78px;border:1px solid rgba(146,190,255,.25);box-shadow:0 24px 54px rgba(2,10,28,.55)}
+    .hero:before,.hero:after{content:"";position:absolute;border-radius:50%;opacity:.22;animation:float 8s ease-in-out infinite}
+    .hero:before{width:240px;height:240px;background:#93c5fd;left:-70px;top:-50px;box-shadow:0 0 46px rgba(147,197,253,.48)}
+    .hero:after{width:210px;height:210px;background:#60a5fa;right:-40px;bottom:-45px;box-shadow:0 0 42px rgba(96,165,250,.42);animation-delay:1.2s}
+    @keyframes float{0%,100%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(0,-16px,0) scale(1.06)}}
+    .hero h1{font-size:46px;margin-bottom:10px;position:relative;z-index:1;cursor:pointer;letter-spacing:.5px;text-shadow:0 4px 16px rgba(5,16,38,.6)}
+    .hero p{opacity:.96;position:relative;z-index:1;color:#d8e5ff;max-width:860px;margin:0 auto}
+    .pill{display:inline-block;margin-top:16px;background:linear-gradient(92deg,#ef4444,#dc2626,#b91c1c);padding:10px 22px;border-radius:24px;font-weight:700;position:relative;z-index:1;animation:pulse 1.6s infinite;color:#fff;text-decoration:none;cursor:pointer;border:none;box-shadow:0 8px 18px rgba(239,68,68,.4)}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+    .hero-tech{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:16px;position:relative;z-index:1}
+    .hero-chip{padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.34);background:rgba(255,255,255,.08);font-size:12px;backdrop-filter:blur(8px)}
+    .section{padding:56px 16px}
+    .container{max-width:1120px;margin:0 auto}
+    h2{text-align:center;margin-bottom:8px;color:#f5f9ff;text-shadow:0 2px 12px rgba(9,16,29,.7)}
+    .sub{text-align:center;color:#afc3ea;margin-bottom:24px}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:linear-gradient(145deg,rgba(12,23,46,.9),rgba(18,30,60,.72));border:1px solid rgba(122,165,238,.26);border-radius:14px;padding:16px;box-shadow:0 10px 28px rgba(2,8,20,.4)}
+    .interactive .card{transition:.25s}
+    .interactive .card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 16px 36px rgba(90,162,255,.32);border-color:rgba(146,203,255,.65)}
+    .metric{font-size:32px;color:#5ad3ff;font-weight:700}
+    #why-analytics .metric{color:#2563eb!important}
+    .mini{font-size:13px;color:#a7badb}
+    .course-card{text-decoration:none;color:inherit;transition:.2s;display:block}
+    .course-card:hover{transform:translateY(-4px)}
+                .course-card img{width:58px;height:58px;object-fit:contain;margin-bottom:6px}
+    .tag{display:inline-block;margin-top:8px;background:linear-gradient(135deg,#0ea5e9,#2563eb);color:#f8fbff;padding:4px 10px;border-radius:16px;font-size:12px;font-weight:600}
+    .muted{color:#a8bbdc;font-size:14px}
+    .audience-wrap{background:linear-gradient(135deg,rgba(10,21,40,.9),rgba(19,36,72,.8));border:1px solid rgba(110,165,242,.24);border-radius:20px;padding:26px;box-shadow:0 18px 40px rgba(2,10,28,.45)}
+    .audience-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:18px}
+    .audience-item{background:rgba(255,255,255,.03);border:1px solid rgba(132,183,255,.25);border-radius:14px;padding:16px;display:flex;gap:10px;align-items:flex-start;transition:.2s}
+    .audience-item:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(90,162,255,.2)}
+    .audience-icon{font-size:20px;line-height:1}
+    .audience-item h3{font-size:17px;margin-bottom:4px}
+    .audience-item p{margin:0;color:#9eb4d8;font-size:14px}
+    .buy-wrap{background:linear-gradient(135deg,#f8fbff,#eef6ff,#e0ecff);border-radius:18px;border:1px solid #bfdbfe;padding:24px;box-shadow:0 16px 36px rgba(37,99,235,.16);color:#0f172a}
+    #buy-section .buy-wrap h2{color:#0b1f4a;font-weight:800;text-shadow:none}
+    #buy-section .buy-wrap .sub{color:#1e3a8a;font-weight:600}
+    .cart-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:16px 0}
+    .chk{display:flex;gap:8px;align-items:flex-start;background:#ffffff;border:1px solid #bfdbfe;border-radius:12px;padding:11px;color:#0f172a;font-weight:700;box-shadow:0 6px 14px rgba(15,23,42,.06)}
+    .chk input{margin-top:3px}
+    .chk.combo-offer{background:#ffffff;border-color:#93c5fd;color:#0f172a;font-weight:700}
+    .chk.combo-offer b{color:#0f172a}
+    .form{margin-top:10px;text-align:center}
+    .form input,.form select{width:92%;max-width:380px;padding:12px;margin:6px;border:1px solid rgba(134,187,255,.38);border-radius:8px;background:rgba(8,19,42,.7);color:#e8f2ff}
+    .total{font-size:22px;font-weight:800;color:#065f46;text-align:center;margin:10px 0}
+    .btn{display:inline-block;background:linear-gradient(90deg,#16a34a,#15803d);color:#fff;border:none;padding:12px 30px;border-radius:24px;cursor:pointer;font-weight:600;box-shadow:0 10px 24px rgba(22,163,74,.35)}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 24px rgba(22,163,74,.42)}
+    .btn:disabled{opacity:.7;cursor:not-allowed}
+    .btn-link{display:inline-block;margin-top:10px;background:linear-gradient(90deg,#312e81,#2563eb);color:#fff;text-decoration:none;padding:10px 20px;border-radius:20px}
+    .btn-link.secondary{background:linear-gradient(90deg,#1e293b,#334155)}
+    #msg{text-align:center;min-height:20px;margin-top:8px}
+    .feedback-wrap{background:linear-gradient(145deg,rgba(12,22,44,.92),rgba(19,30,58,.82));border:1px solid rgba(126,175,245,.26);border-radius:16px;padding:22px;box-shadow:0 10px 28px rgba(0,0,0,.3)}
+    .wa-gallery{margin-top:14px;overflow:hidden;border:1px solid rgba(126,175,245,.28);border-radius:14px;background:linear-gradient(160deg,#0c1a33,#11274a)}
+    .wa-gallery-track{display:flex;gap:14px;width:max-content;padding:14px;animation:waSlide 28s linear infinite}
+    .wa-gallery:hover .wa-gallery-track{animation-play-state:paused}
+    @keyframes waSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .wa-proof{width:220px;height:390px;object-fit:cover;border-radius:12px;border:1px solid rgba(145,191,255,.45);background:#0b1629;box-shadow:0 8px 20px rgba(0,0,0,.28)}
+    .proof-note{margin-top:12px;font-size:13px;color:#adc2e8;text-align:center}
+    .hiring-wrap{background:linear-gradient(145deg,rgba(12,22,44,.92),rgba(19,30,58,.82));border:1px solid rgba(126,175,245,.26);border-radius:16px;padding:22px;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+    .logo-marquee{margin-top:16px;overflow:hidden;border:1px solid #d6e4ff;border-radius:14px;background:#ffffff}
+    .logo-track{display:flex;align-items:center;gap:12px;width:max-content;padding:10px;animation:logoSlide 26s linear infinite}
+    @keyframes logoSlide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .logo-card{background:rgba(255,255,255,.06);border:1px solid rgba(126,175,245,.26);border-radius:12px;padding:14px;display:flex;align-items:center;justify-content:center;min-height:92px;min-width:210px}
+    .logo-card img{max-width:100%;max-height:54px;object-fit:contain;filter:grayscale(.1)}
+    .logo-marquee:hover .logo-track{animation-play-state:paused}
+    @media (prefers-reduced-motion:reduce){.logo-track{animation:none;transform:none}}
+    .ads-section{padding:26px 16px 10px}
+    .ads-slider{max-width:1120px;margin:0 auto;position:relative;border-radius:18px;overflow:hidden;box-shadow:0 18px 38px rgba(2,6,23,.35);background:#ffffff;cursor:pointer;border:1px solid rgba(126,175,245,.32);padding:8px}
+    .ads-slide{width:100%;aspect-ratio:1440/1086;height:auto;display:block;object-fit:cover;object-position:center;border-radius:12px;border:2px solid #ffffff;background:#fff;opacity:1;transition:opacity .45s ease}
+    .ads-overlay{position:absolute;inset:auto 8px 8px 8px;padding:14px 16px;background:linear-gradient(to top,rgba(2,6,23,.68),rgba(2,6,23,0));color:#fff;font-weight:600;font-size:14px;border-radius:0 0 12px 12px}
+    .ads-dots{display:flex;justify-content:center;gap:8px;margin-top:10px}
+    .ads-dot{width:9px;height:9px;border-radius:50%;background:#cbd5e1;opacity:.55;border:none;padding:0}
+    .ads-dot.active{opacity:1;background:#2563eb}
+    .whatsapp{position:fixed;right:18px;bottom:18px;background:#25D366;width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 20px rgba(0,0,0,.35);z-index:9999;animation:waBob 2.2s infinite}
+    @keyframes waBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    .whatsapp img{width:38px}
+
+    .reveal{opacity:0;transform:translateY(28px) scale(.985);transition:opacity .75s ease,transform .75s ease}
+    .reveal.visible{opacity:1;transform:none}
+.youtube-wrap{background:linear-gradient(145deg,rgba(12,22,44,.96),rgba(19,30,58,.85));border:1px solid rgba(126,175,245,.26);border-radius:16px;padding:22px;box-shadow:0 14px 28px rgba(0,0,0,.32)}
+    .yt-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:18px}
+    .yt-card{background:rgba(255,255,255,.04);border:1px solid rgba(126,175,245,.22);border-radius:14px;padding:12px;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+    .yt-card:hover{transform:translateY(-4px);border-color:rgba(138,195,255,.65);box-shadow:0 14px 28px rgba(80,158,255,.22)}
+    .yt-frame{width:100%;aspect-ratio:16/9;border:0;border-radius:10px;background:#020617}
+    .yt-meta{margin-top:10px}
+    .yt-meta h3{font-size:15px;color:#eef4ff;margin-bottom:4px}
+    .yt-meta p{font-size:13px;color:#aec3e8}
+    .yt-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .faq-wrap{background:linear-gradient(145deg,rgba(12,22,44,.96),rgba(19,30,58,.86));border:1px solid rgba(126,175,245,.26);border-radius:16px;padding:22px;box-shadow:0 14px 28px rgba(0,0,0,.32)}
+    .faq-list{display:grid;gap:10px;margin-top:16px}
+    .faq-item{border:1px solid rgba(126,175,245,.28);border-radius:12px;background:rgba(255,255,255,.03);overflow:hidden}
+    .faq-item summary{list-style:none;cursor:pointer;padding:14px 16px;font-weight:600;color:#edf3ff;display:flex;justify-content:space-between;gap:8px}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::after{content:'+';font-size:20px;line-height:1;color:#93c5fd}
+    .faq-item[open] summary::after{content:'–'}
+    .faq-answer{padding:0 16px 14px;color:#b8cceb;font-size:14px}
+    .glow-line{height:2px;width:160px;margin:10px auto 0;background:linear-gradient(90deg,transparent,#67e8f9,#60a5fa,transparent);filter:drop-shadow(0 0 7px rgba(96,165,250,.7))}
+    .social-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:10px 0 6px}
+    .social-links a{width:42px;height:42px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);border:1px solid rgba(169,196,240,.35);transition:.2s}
+    .social-links a:hover{transform:translateY(-2px);background:rgba(255,255,255,.16)}
+    .social-links img{width:22px;height:22px}
+
+    /* Hero curve + section color sync */
+    .hero{position:relative}
+    
+    /* Recommended Learning Path (dropdown roadmap) */
+    .learning-path{background:linear-gradient(to bottom,#f8fafc,#eef2f7)!important;padding:60px 0!important}
+    .learning-path h2{color:#0f172a;text-shadow:none}
+    .learning-path .sub{color:#64748b}
+    .lp-wrap{display:grid;gap:12px;margin-top:26px}
+    .lp-course{background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;box-shadow:0 8px 24px rgba(2,6,23,.06)}
+    .lp-header{display:grid;grid-template-columns:56px auto 1fr 24px;align-items:center;gap:10px;padding:14px 16px;cursor:pointer}
+    .lp-header img{width:44px;height:44px;object-fit:contain}
+    .lp-week{background:#e0f2fe;color:#0369a1;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700;justify-self:start}
+    .lp-week.soon{background:#fef3c7;color:#92400e}
+    .lp-title{color:#0f172a;font-weight:700;font-size:13px}
+    .lp-subtitle{color:#64748b;font-size:11px;line-height:1.4}
+    .lp-chevron{display:flex;align-items:center;justify-content:center;transition:transform .25s ease}
+    .lp-chevron svg{width:18px;height:18px;fill:none;stroke:#334155;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+    .lp-dropdown{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .lp-course.open .lp-dropdown{max-height:1400px}
+    .lp-course.open .lp-chevron{transform:rotate(180deg)}
+    .lp-dropdown-inner{padding:0 16px 16px;border-top:1px solid #e2e8f0}
+    .lp-timeline{display:grid;gap:10px;margin-top:12px}
+    .lp-step{display:flex;gap:10px;align-items:flex-start}
+    .lp-dot{min-width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#0ea5e9,#2563eb);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+    .lp-step-body h4{font-size:11.5px;color:#0f172a;margin-bottom:6px;font-weight:600}
+    .lp-tags{display:flex;flex-wrap:wrap;gap:6px}
+    .lp-tag{font-size:11px;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:999px;padding:2px 8px}
+    .lp-tag.adv{background:#eef2ff;border-color:#c7d2fe;color:#3730a3}
+    .lp-tag.py{background:#f0fdfa;border-color:#99f6e4;color:#0f766e}
+    .lp-tag.gr{background:#f0fdf4;border-color:#bbf7d0;color:#166534}
+    .lp-desc{margin-top:6px;font-size:12px;line-height:1.6;color:#475569}
+    .lp-link{display:inline-block;margin-top:14px;background:linear-gradient(135deg,#0284c7,#2563eb);color:#fff;text-decoration:none;padding:9px 14px;border-radius:10px;font-weight:600;font-size:13px}
+    .lp-link:hover{filter:brightness(1.05)}
+    .lp-path-note{text-align:center;margin-top:16px;color:#64748b;font-size:13px}
+
+    .legal-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:6px 0 4px}
+    .legal-links a{color:#cfe2ff;text-decoration:none;font-weight:600;font-size:13px}
+    .legal-links a:hover{text-decoration:underline;color:#ffffff}
+    footer{margin-top:32px;background:linear-gradient(135deg,#0b1220,#12335f,#2563eb);color:#d9e8ff;padding:24px 16px;text-align:center;font-size:13px;border-top:1px solid rgba(126,175,245,.24)}
+    .brand{font-weight:700}
+    .comparison-table-wrap{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px}
+    .comparison-table{width:100%;min-width:760px;border-collapse:collapse;margin:20px 0;background:rgba(12,23,46,.6);border-radius:12px;overflow:hidden}
+    .skills-grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin-top:18px}
+    .skill-item{background:rgba(255,255,255,.03);border:1px solid rgba(132,183,255,.25);border-radius:12px;padding:16px;text-align:center}
+    .skill-item .skill-logo{width:42px;height:42px;object-fit:contain;margin-bottom:8px;filter:drop-shadow(0 4px 8px rgba(9,18,40,.35))}
+    .skill-item p{font-size:12px;margin-top:8px;color:#afc3ea}
+    @media (max-width:900px){
+      .hero{padding:72px 14px 54px}
+      .hero h1{font-size:34px;line-height:1.15}
+      .hero p{font-size:14px}
+      .pill{display:block;max-width:520px;margin:14px auto 0;font-size:14px;line-height:1.35;padding:10px 16px}
+      .section{padding:42px 14px}
+      .audience-wrap,.buy-wrap,.feedback-wrap,.hiring-wrap,.youtube-wrap,.faq-wrap{padding:16px}
+      .cart-grid,.yt-grid{grid-template-columns:1fr}
+      .chk{font-size:14px}
+      .form input,.form select{width:100%;max-width:none;margin:6px 0}
+      .total{font-size:20px}
+      .wa-proof{width:168px;height:304px}
+      .logo-card{min-width:152px;min-height:78px;padding:10px}
+      .logo-card img{max-height:44px}
+      .ads-section{padding:18px 12px 8px}
+      .ads-slider{border-radius:14px}
+      .ads-slide{aspect-ratio:1440/1086;height:auto}
+      .ads-overlay{font-size:12px;padding:10px 12px}
+      .whatsapp{width:56px;height:56px;right:12px;bottom:12px}
+      .whatsapp img{width:31px}
+      .learning-path{padding:42px 0!important}
+      .lp-header{grid-template-columns:42px 1fr 22px;gap:8px;padding:12px;align-items:start}
+      .lp-header .lp-week{grid-column:2;grid-row:2;justify-self:start;margin-top:4px}
+      .lp-header .lp-title{font-size:14px;line-height:1.35}
+      .lp-subtitle{font-size:11px;line-height:1.45;word-break:break-word}
+      .lp-dropdown-inner{padding:0 12px 14px}
+      .comparison-table{min-width:680px;margin:14px 0}
+      .comparison-table th,.comparison-table td{padding:11px!important;font-size:13px}
+      .skill-item .skill-logo{width:36px;height:36px}
+    }
+    @media (max-width:640px){
+      h2{font-size:22px}
+      .sub{font-size:13px}
+      #explore-courses .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+      #explore-courses .course-card{padding:12px}
+      #explore-courses .course-card h3{font-size:15px;line-height:1.3}
+      #explore-courses .course-card .muted{font-size:12px}
+      #explore-courses .course-card img{width:46px;height:46px}
+      .ads-slide{aspect-ratio:1440/1086;height:auto}
+      .lp-step-body h4{font-size:11px;line-height:1.4}
+      .lp-desc{font-size:11px}
+      .lp-link{width:100%;text-align:center}
+      #why-analytics h2,#program-for h2,#candidate-benefits h2,#comparison-section h2,#guarantee-section h2,#success-stories h2,#faq-section h2{font-size:21px!important}
+      #why-analytics .sub,#program-for .sub,#candidate-benefits .sub,#comparison-section .sub,#guarantee-section .sub,#success-stories p,#faq-section .sub{font-size:12px!important}
+      #why-analytics .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      #why-analytics .card b{font-size:13px}
+      #why-analytics .mini{font-size:11px}
+      #why-analytics .metric{font-size:24px;color:#2563eb!important}
+      #program-for .audience-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      #program-for .audience-item{padding:12px}
+      #program-for .audience-item h3{font-size:15px}
+      #program-for .audience-item p{font-size:12px}
+      #candidate-benefits .audience-item h3{font-size:15px}
+      #candidate-benefits .audience-item p{font-size:12px}
+    }
+  </style>
+  <link rel="stylesheet" href="theme_professional.css">
+  <style>
+    /* Keep index visual colors fixed even when theme_professional.css applies global !important styles */
+    .hero{background:linear-gradient(135deg,#0b1220,#12335f,#2563eb)!important}
+    .hero h1,.hero p,.hero-chip{color:#ffffff!important;text-shadow:0 2px 10px rgba(2,6,23,.55)!important}
+    .hero:before,.hero:after{opacity:.22!important;animation:float 8s ease-in-out infinite!important}
+    .hero:before{width:240px!important;height:240px!important;background:#93c5fd!important;left:-70px!important;top:-50px!important}
+    .pill,#offerPill{background:linear-gradient(92deg,#ef4444,#dc2626,#b91c1c)!important;color:#fff!important}
+    .btn,#buyBtn{background:linear-gradient(90deg,#16a34a,#15803d)!important;color:#fff!important}
+    .buy-wrap{background:linear-gradient(135deg,#f8fbff,#eef6ff,#e0ecff)!important;border:1px solid #bfdbfe!important;color:#0f172a!important}
+    #buy-section .buy-wrap h2{color:#0b1f4a!important;font-weight:800!important;text-shadow:none!important}
+    #buy-section .buy-wrap .sub{color:#1e3a8a!important;font-weight:600!important}
+    .chk{background:#ffffff!important;border-color:#bfdbfe!important;color:#0f172a!important;font-weight:700!important}
+    .chk.combo-offer{background:#ffffff!important;border-color:#93c5fd!important;color:#0f172a!important}
+    .chk.combo-offer b{color:#0f172a!important}
+    .total{color:#065f46!important;font-weight:800!important}
+    footer{background:linear-gradient(135deg,#0b1220,#12335f,#2563eb)!important}
+  </style>
+</head>
+  <!-- SECTION: BODY (page content) -->
+<body>
+  <!-- SECTION: HEADER .hero -->
+  <header class="hero">
+    <div class="hero-brand"><h1>DataLearn10X</h1></div>
+    <p>Job-ready Data Analytics training for candidates: recorded courses, guided projects, resume tools, interview prep, and placement-focused support.</p>
+    <div class="hero-tech" aria-label="Technology highlights">
+      <span class="hero-chip">⚡ AI-Powered Learning</span>
+      <span class="hero-chip">🧠 Hands-on Projects</span>
+      <span class="hero-chip">📈 Career Dashboard</span>
+      <span class="hero-chip">🔐 Secure Checkout</span>
+    </div>
+    <div class="glow-line" aria-hidden="true"></div>
+    <a class="pill" id="offerPill" href="#explore-courses" aria-label="Go to Explore Courses">🔥 All Courses Bundle Intro Offer ₹0</a>
+      </header>
+
+  <!-- SECTION: SECTION .ads-section -->
+  <section class="ads-section" aria-label="Latest offers">
+    <div id="adsSlider" class="ads-slider" role="button" tabindex="0" aria-label="Advertisement slider. Click to explore courses.">
+      <img id="adsSlideImage" class="ads-slide" src="dl1x.png" alt="DataLearn10X advertisement" loading="eager">
+      <div class="ads-overlay">Special Offers</div>
+    </div>
+    <div id="adsDots" class="ads-dots" aria-hidden="true"></div>
+  </section>
+
+<!-- PREMIUM: Learning Path Section (Light + Professional) -->
+
+
+
+
+  <!-- SECTION: SECTION #why-analytics -->
+  <section class="section interactive reveal" id="why-analytics">
+    <div class="container">
+      <h2>Why Data Analytics?</h2>
+      <p class="sub">Interactive learning path from beginner to job-ready level.</p>
+      <div class="grid">
+        <div class="card"><div class="metric" data-target="92">0%</div><b>Hiring demand</b><div class="mini">Companies looking for analytics skills.</div></div>
+        <div class="card"><div class="metric" data-target="4">0x</div><b>Faster decision-making</b><div class="mini">Data-backed strategy improves outcomes.</div></div>
+        <div class="card"><div class="metric" data-target="30">0%</div><b>Avg salary uplift</b><div class="mini">Upskilling increases earning potential.</div></div>
+        <div class="card"><div class="metric" data-target="100">0%</div><b>Project-based training</b><div class="mini">Hands-on assignments in every module.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: SECTION #program-for -->
+  <section class="section reveal" id="program-for">
+    <div class="container">
+      <div class="audience-wrap">
+        <h2>Who is this program for?</h2>
+        <p class="sub">Designed for learners at every stage who want practical, job-focused analytics skills.</p>
+        <div class="audience-grid">
+          <div class="audience-item"><span class="audience-icon">🎓</span><div><h3>Students & Freshers</h3><p>Build portfolio-ready projects and gain confidence for your first analytics role.</p></div></div>
+          <div class="audience-item"><span class="audience-icon">💼</span><div><h3>Working Professionals</h3><p>Switch to analytics or upskill quickly with hands-on tools used in real jobs.</p></div></div>
+          <div class="audience-item"><span class="audience-icon">📈</span><div><h3>Business Owners & Managers</h3><p>Learn to read dashboards and make smarter, data-backed business decisions.</p></div></div>
+          <div class="audience-item"><span class="audience-icon">🧠</span><div><h3>Career Restarters</h3><p>Follow a beginner-friendly path with mentor support and structured learning steps.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION: SECTION #candidate-benefits -->
+  <section class="section reveal" id="candidate-benefits">
+    <div class="container">
+      <div class="audience-wrap">
+        <h2>What candidates get with DataLearn10X</h2>
+        <p class="sub">Everything is structured to help you learn faster, build proof of skills, and apply confidently for jobs.</p>
+        <div class="audience-grid">
+          <div class="audience-item"><span class="audience-icon">🎥</span><div><h3>Recorded Course Library</h3><p>Self-paced video courses in Excel, Python, Power BI, ML, resume building, and interview prep.</p></div></div>
+          <div class="audience-item"><span class="audience-icon">🧩</span><div><h3>Hands-on Practice + Projects</h3><p>Practice tasks and mini projects that mirror real analytics work so you can build confidence.</p></div></div>
+          <div class="audience-item"><span class="audience-icon">📄</span><div><h3>Career Toolkit</h3><p>ATS resume maker, ATS score checker, cheat sheets, and HR email resources to support job applications.</p></div></div>
+          <div class="audience-item"><span class="audience-icon">🚀</span><div><h3>Job Readiness Path</h3><p>A beginner-to-advanced roadmap so candidates know what to learn next and stay consistent.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- SECTION: SECTION .section -->
+<section class="section reveal learning-path" id="learning-path" style="background:#fff">
+  <div class="container" style="max-width:920px;margin:auto">
+    <h2>📚 Recommended Learning Path</h2>
+    <p class="sub">Click on any course below to see the full topic-wise roadmap — 16 weeks to job-ready</p>
+
+    <div class="lp-wrap">
+      <div class="lp-course open">
+        <div class="lp-header" onclick="toggleLP(this)" aria-expanded="true">
+          <img src="https://img.icons8.com/color/96/microsoft-excel-2019.png" alt="Excel">
+          <span class="lp-week">Week 1–3</span>
+          <div><div class="lp-title">Advance Excel</div><div class="lp-subtitle">MRP ₹999 | Offer ₹49 · Recorded Sessions</div></div>
+          <div class="lp-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="lp-dropdown"><div class="lp-dropdown-inner">
+          <div class="lp-timeline">
+            <div class="lp-step"><div class="lp-dot">1</div><div class="lp-step-body"><h4>Excel Interface & Cell References</h4><div class="lp-tags"><span class="lp-tag">Workbook vs Worksheet</span><span class="lp-tag">Ribbon & Tabs</span><span class="lp-tag">Relative / Absolute Ref</span></div><p class="lp-desc">Learn workbook structure and master relative, absolute, and mixed references.</p></div></div>
+            <div class="lp-step"><div class="lp-dot">2</div><div class="lp-step-body"><h4>Essential Formulas & Functions</h4><div class="lp-tags"><span class="lp-tag">SUM / AVERAGE</span><span class="lp-tag">COUNT / COUNTA</span><span class="lp-tag">IF / Nested IF</span></div><p class="lp-desc">Build strong formula logic for day-to-day analyst work.</p></div></div>
+            <div class="lp-step"><div class="lp-dot">3</div><div class="lp-step-body"><h4>Lookup & Reference Functions</h4><div class="lp-tags"><span class="lp-tag">VLOOKUP</span><span class="lp-tag">INDEX MATCH</span><span class="lp-tag">XLOOKUP</span></div><p class="lp-desc">Pull and map data efficiently across large sheets.</p></div></div>
+            <div class="lp-step"><div class="lp-dot">4</div><div class="lp-step-body"><h4>Data Cleaning & Conditional Functions</h4><div class="lp-tags"><span class="lp-tag">TRIM / CLEAN</span><span class="lp-tag">SUMIF / COUNTIF</span><span class="lp-tag">IFERROR</span></div><p class="lp-desc">Clean messy data and automate error-safe summaries.</p></div></div>
+            <div class="lp-step"><div class="lp-dot">5</div><div class="lp-step-body"><h4>Pivot Tables, Charts & Dashboard</h4><div class="lp-tags"><span class="lp-tag adv">Pivot Tables</span><span class="lp-tag adv">Slicers</span><span class="lp-tag adv">Dashboard</span></div><p class="lp-desc">Create interactive reports and business dashboards.</p></div></div>
+          </div>
+          <a class="lp-link" href="course_advance_excel.html">Open Full Excel Course →</a>
+        </div></div>
+      </div>
+
+      <div class="lp-course">
+        <div class="lp-header" onclick="toggleLP(this)" aria-expanded="false">
+          <img src="https://img.icons8.com/fluency/96/mysql-logo.png" alt="SQL">
+          <span class="lp-week">Week 4–6</span>
+          <div><div class="lp-title">SQL (MySQL)</div><div class="lp-subtitle">Full roadmap available · Recorded Sessions</div></div>
+          <div class="lp-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="lp-dropdown"><div class="lp-dropdown-inner"><div class="lp-timeline">
+          <div class="lp-step"><div class="lp-dot">1</div><div class="lp-step-body"><h4>Database Basics & SQL Need</h4><div class="lp-tags"><span class="lp-tag">Schemas</span><span class="lp-tag">Tables</span><span class="lp-tag">Rows & Columns</span></div><p class="lp-desc">Understand why SQL is essential for large-scale analytics.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">2</div><div class="lp-step-body"><h4>DDL / DCL / DML</h4><div class="lp-tags"><span class="lp-tag">CREATE/ALTER</span><span class="lp-tag">GRANT/REVOKE</span><span class="lp-tag">INSERT/UPDATE</span></div><p class="lp-desc">Master structure, permissions, and data operations.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">3</div><div class="lp-step-body"><h4>Querying & Filtering</h4><div class="lp-tags"><span class="lp-tag py">SELECT</span><span class="lp-tag py">WHERE</span><span class="lp-tag py">GROUP BY</span></div><p class="lp-desc">Write interview-level queries with filters and grouping.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">4</div><div class="lp-step-body"><h4>JOINs & Aggregations</h4><div class="lp-tags"><span class="lp-tag adv">INNER JOIN</span><span class="lp-tag adv">LEFT JOIN</span><span class="lp-tag">SUM/AVG/COUNT</span></div><p class="lp-desc">Combine data from multiple tables and aggregate insights.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">5</div><div class="lp-step-body"><h4>Advanced SQL</h4><div class="lp-tags"><span class="lp-tag adv">Subqueries</span><span class="lp-tag adv">Views</span><span class="lp-tag adv">Window Functions</span></div><p class="lp-desc">Cover advanced analytics queries used in real projects.</p></div></div>
+        </div></div></div>
+      </div>
+
+      <div class="lp-course">
+        <div class="lp-header" onclick="toggleLP(this)" aria-expanded="false">
+          <img src="https://img.icons8.com/color/96/python--v1.png" alt="Python">
+          <span class="lp-week">Week 7–10</span>
+          <div><div class="lp-title">Python for Data Analytics</div><div class="lp-subtitle">MRP ₹2000 | Offer ₹99 · Recorded Sessions</div></div>
+          <div class="lp-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="lp-dropdown"><div class="lp-dropdown-inner"><div class="lp-timeline">
+          <div class="lp-step"><div class="lp-dot">1</div><div class="lp-step-body"><h4>Python Basics & Setup</h4><div class="lp-tags"><span class="lp-tag py">Variables</span><span class="lp-tag py">if/else</span><span class="lp-tag py">Loops</span></div><p class="lp-desc">Start from zero and build coding confidence quickly.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">2</div><div class="lp-step-body"><h4>Data Structures & Files</h4><div class="lp-tags"><span class="lp-tag py">Lists</span><span class="lp-tag py">Dict</span><span class="lp-tag py">CSV</span></div><p class="lp-desc">Handle real data files and structured Python objects.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">3</div><div class="lp-step-body"><h4>NumPy & Pandas</h4><div class="lp-tags"><span class="lp-tag py">DataFrame</span><span class="lp-tag py">GroupBy</span><span class="lp-tag py">Merge</span></div><p class="lp-desc">Use the core analytics stack used by data analysts.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">4</div><div class="lp-step-body"><h4>Cleaning & Visualization</h4><div class="lp-tags"><span class="lp-tag py">Missing Values</span><span class="lp-tag py">Matplotlib</span><span class="lp-tag py">Seaborn</span></div><p class="lp-desc">Clean datasets and build clear data visualizations.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">5</div><div class="lp-step-body"><h4>Projects (EDA + Dashboard)</h4><div class="lp-tags"><span class="lp-tag adv">EDA</span><span class="lp-tag adv">Sales Analysis</span><span class="lp-tag adv">Portfolio Project</span></div><p class="lp-desc">Create portfolio-ready projects for interviews.</p></div></div>
+        </div>
+        <a class="lp-link" href="course_python.html">Open Full Python Course →</a>
+      </div></div>
+      </div>
+
+      <div class="lp-course">
+        <div class="lp-header" onclick="toggleLP(this)" aria-expanded="false">
+          <img src="https://img.icons8.com/color/96/power-bi-2021.png" alt="Power BI">
+          <span class="lp-week">Week 11–13</span>
+          <div><div class="lp-title">Power BI</div><div class="lp-subtitle">MRP ₹2500 | Offer ₹99 · Recorded Sessions</div></div>
+          <div class="lp-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="lp-dropdown"><div class="lp-dropdown-inner"><div class="lp-timeline">
+          <div class="lp-step"><div class="lp-dot">1</div><div class="lp-step-body"><h4>Power BI Interface & Import</h4><div class="lp-tags"><span class="lp-tag">Get Data</span><span class="lp-tag">Power Query</span><span class="lp-tag">Merge</span></div><p class="lp-desc">Import and transform raw data into model-ready tables.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">2</div><div class="lp-step-body"><h4>Visualizations</h4><div class="lp-tags"><span class="lp-tag">Bar/Line</span><span class="lp-tag">Maps</span><span class="lp-tag">Matrix</span></div><p class="lp-desc">Create impactful business visuals and report pages.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">3</div><div class="lp-step-body"><h4>DAX Measures</h4><div class="lp-tags"><span class="lp-tag adv">CALCULATE</span><span class="lp-tag adv">SUMX</span><span class="lp-tag adv">Time Intelligence</span></div><p class="lp-desc">Build smart metrics for analysis and KPI tracking.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">4</div><div class="lp-step-body"><h4>Dashboard Interactivity</h4><div class="lp-tags"><span class="lp-tag adv">Slicers</span><span class="lp-tag adv">Bookmarks</span><span class="lp-tag adv">Drill-through</span></div><p class="lp-desc">Deliver interactive executive dashboards.</p></div></div>
+        </div>
+        <a class="lp-link" href="course_power_bi.html">Open Full Power BI Course →</a>
+      </div></div>
+      </div>
+
+      <div class="lp-course">
+        <div class="lp-header" onclick="toggleLP(this)" aria-expanded="false">
+          <img src="assets/ml-course-logo.svg" alt="ML DL">
+          <span class="lp-week">Week 14–16</span>
+          <div><div class="lp-title">Machine Learning + Deep Learning</div><div class="lp-subtitle">MRP ₹3000 | Offer ₹99 · Recorded Sessions</div></div>
+          <div class="lp-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="lp-dropdown"><div class="lp-dropdown-inner"><div class="lp-timeline">
+          <div class="lp-step"><div class="lp-dot">1</div><div class="lp-step-body"><h4>ML Foundations</h4><div class="lp-tags"><span class="lp-tag py">Supervised</span><span class="lp-tag py">Preprocessing</span><span class="lp-tag py">Train/Test</span></div><p class="lp-desc">Learn model-building foundations and feature prep.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">2</div><div class="lp-step-body"><h4>Regression & Classification</h4><div class="lp-tags"><span class="lp-tag py">Linear Regression</span><span class="lp-tag py">Random Forest</span><span class="lp-tag py">F1 Score</span></div><p class="lp-desc">Train and evaluate ML models for prediction tasks.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">3</div><div class="lp-step-body"><h4>Neural Networks</h4><div class="lp-tags"><span class="lp-tag adv">TensorFlow</span><span class="lp-tag adv">Keras</span><span class="lp-tag adv">CNN Basics</span></div><p class="lp-desc">Get started with deep learning architecture.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">4</div><div class="lp-step-body"><h4>End-to-End Projects</h4><div class="lp-tags"><span class="lp-tag adv">Price Prediction</span><span class="lp-tag adv">Churn</span><span class="lp-tag adv">Image Recognition</span></div><p class="lp-desc">Build capstone models ready for portfolio showcases.</p></div></div>
+        </div>
+        <a class="lp-link" href="course_ml_dl.html">Open Full ML+DL Course →</a>
+      </div></div>
+      </div>
+
+      <div class="lp-course">
+        <div class="lp-header" onclick="toggleLP(this)" aria-expanded="false">
+          <img src="https://img.icons8.com/color/96/resume.png" alt="Job Prep">
+          <span class="lp-week soon">2 Months</span>
+          <div><div class="lp-title">Job Preparation & Placement Support</div><div class="lp-subtitle">Resume · Interview Prep · LinkedIn · Portfolio</div></div>
+          <div class="lp-chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="lp-dropdown"><div class="lp-dropdown-inner"><div class="lp-timeline">
+          <div class="lp-step"><div class="lp-dot">1</div><div class="lp-step-body"><h4>Resume + ATS Optimization</h4><div class="lp-tags"><span class="lp-tag gr">ATS Resume</span><span class="lp-tag gr">Templates</span><span class="lp-tag gr">Score Checker</span></div><p class="lp-desc">Build a recruiter-friendly resume and improve ATS score.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">2</div><div class="lp-step-body"><h4>Portfolio & LinkedIn</h4><div class="lp-tags"><span class="lp-tag gr">GitHub</span><span class="lp-tag gr">Kaggle</span><span class="lp-tag gr">LinkedIn</span></div><p class="lp-desc">Showcase projects professionally to attract interviews.</p></div></div>
+          <div class="lp-step"><div class="lp-dot">3</div><div class="lp-step-body"><h4>Job Application Strategy</h4><div class="lp-tags"><span class="lp-tag gr">HR Emails</span><span class="lp-tag gr">Interview Q&A</span><span class="lp-tag gr">Daily Apply Plan</span></div><p class="lp-desc">Run an effective application pipeline until you get offers.</p></div></div>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">
+          <a class="lp-link" href="resume_maker.html">Free Resume Maker →</a>
+          <a class="lp-link" style="background:linear-gradient(135deg,#0284c7,#0ea5e9)" href="ats_resume_checker.html">ATS Score Checker →</a>
+          <a class="lp-link" style="background:linear-gradient(135deg,#166534,#16a34a)" href="course_hr_emails.html">HR Emails →</a>
+        </div>
+      </div></div>
+      </div>
+    </div>
+    <p class="lp-path-note">⏱️ 16 Weeks + 2 Months Job Prep · Self-Paced · Lifetime Access · WhatsApp Support</p>
+  </div>
+</section>
+  <!-- SECTION: SECTION #explore-courses -->
+  <section class="section reveal" id="explore-courses" style="background:linear-gradient(180deg,rgba(6,12,24,.45),rgba(20,45,92,.28))">
+    <div class="container">
+      <h2>Explore Courses</h2>
+      <p class="sub">Choose your track, watch prerecorded video lessons, practice with real tasks, and build job-ready project skills.</p>
+      <div class="grid">
+        <a class="card course-card" href="course_advance_excel.html"><img src="https://img.icons8.com/color/96/microsoft-excel-2019.png" alt="Advance Excel"><h3>Advance Excel</h3><div class="muted">MRP ₹999 | Offer ₹49</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_python.html"><img src="https://img.icons8.com/color/96/python--v1.png" alt="Python"><h3>Python</h3><div class="muted">MRP ₹2000 | Offer ₹99</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_power_bi.html"><img src="https://img.icons8.com/color/96/power-bi-2021.png" alt="Power BI"><h3>Power BI</h3><div class="muted">MRP ₹2500 | Offer ₹99</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_tableau.html"><img src="https://img.icons8.com/color/96/tableau-software.png" alt="Tableau"><h3>Tableau</h3><div class="muted">MRP ₹2500 | Offer ₹99</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_mysql.html"><img src="https://img.icons8.com/fluency/96/mysql-logo.png" alt="SQL"><h3>SQL (MySQL)</h3><div class="muted">MRP ₹2500 | Offer ₹99</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_aws.html"><img src="https://img.icons8.com/color/96/amazon-web-services.png" alt="AWS"><h3>AWS Full Stack Development</h3><div class="muted">Spring Boot + AWS RDS + MySQL + Heroku · ₹99</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_ai.html"><img src="https://img.icons8.com/color/96/artificial-intelligence.png" alt="Learn AI"><h3>Learn AI</h3><div class="muted">AI fundamentals to real-world workflow projects · ₹99</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_mongodb.html"><img src="https://img.icons8.com/color/96/mongodb.png" alt="MongoDB"><h3>MongoDB</h3><div class="muted">NoSQL, aggregation, backend integration · ₹99</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_git_github.html"><img src="https://img.icons8.com/color/96/github--v1.png" alt="Git & GitHub"><h3>Git &amp; GitHub</h3><div class="muted">Version control + collaboration workflow · ₹99</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_ml_dl.html"><img src="assets/ml-course-logo.svg" alt="ML DL"><h3>Machine Learning + Deep Learning</h3><div class="muted">MRP ₹3000 | Offer ₹99</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_cheat_sheets.html"><img src="https://img.icons8.com/color/96/todo-list.png" alt="Cheat Sheets"><h3>Cheat Sheets and Interview Questions </h3><div class="muted">MRP ₹499 | Offer ₹19</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_hr_emails.html"><img src="https://img.icons8.com/color/96/new-post.png" alt="HR Emails"><h3>20000+ HR Emails</h3><div class="muted">MRP ₹499 | Offer ₹19</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_projects_only.html"><img src="assets/projects-course-logo.svg" alt="Projects Only"><h3>Projects</h3><div class="muted">MRP ₹1000 | Offer ₹99</div><span class="tag">Open Course</span></a>
+        <a class="card course-card" href="course_english_typing.html"><img src="https://img.icons8.com/color/96/keyboard.png" alt="Typing Course"><h3>English Typing Course (100 Levels)</h3><div class="muted">100% Free Practice for All</div><span class="tag">Start Free</span></a>
+        <a class="card course-card" href="resume_maker.html"><img src="https://img.icons8.com/color/96/resume.png" alt="Resume Maker"><h3>ATS Friendly Resume Maker</h3><div class="muted">50 Templates | 100% Free for Students</div><span class="tag">Create Resume Free</span></a>
+        <a class="card course-card" href="ats_resume_checker.html"><img src="assets/logos/ats-checker.svg" alt="ATS Checker"><h3>Advanced ATS Resume Score Checker</h3><div class="muted">JD match score | Resume corrections | Job links</div><span class="tag">Analyze Resume Free</span></a>
+        <a class="card course-card" href="practice_hub.html"><img src="https://img.icons8.com/color/96/task.png" alt="Practice Hub"><h3>Free Practice Hub (Python, SQL, Excel)</h3><div class="muted">300 questions | 3 levels | Email-based progress sync</div><span class="tag">Practice Free</span></a>
+        <a class="card course-card" href="ai_tools.html"><img src="https://img.icons8.com/color/96/chatgpt.png" alt="AI Tools Hub"><h3>AI Tools Hub for Students</h3><div class="muted">Tool ratings | Use-cases | Smart picks for learning & career</div><span class="tag">Explore AI Tools</span></a>
+      </div>
+    </div>
+  </section>
+
+  
+<!-- NEW: Success Stories Section -->
+<!-- PREMIUM: Success Stories Section (Light Theme) -->
+<!-- SECTION: SECTION #success-stories -->
+<section class="section reveal" id="success-stories" style="background:linear-gradient(to bottom,#f8fafc,#eef2f7);padding:60px 20px;">
+  <div class="container" style="max-width:1000px;margin:auto;">
+    
+    <h2 style="text-align:center;color:#0f172a;font-size:32px;font-weight:700;">
+      🎉 Success Stories & Outcomes
+    </h2>
+    <p style="text-align:center;color:#64748b;margin-top:8px;">
+      See how our students transformed their careers
+    </p>
+
+    <div style="margin-top:30px;display:grid;gap:20px;">
+
+      <!-- Card 1 -->
+      <div class="success-card">
+        <h4>📊 Job Placement: 85%+ Success Rate</h4>
+        <p>
+          Our graduates land jobs within 3–6 months of completing the program with strong salary packages.
+        </p>
+        <div class="rating">⭐⭐⭐⭐⭐ <span>(Based on 450+ students)</span></div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="success-card">
+        <h4>💼 Average Salary After Course</h4>
+        <p>
+          <strong>Data Analyst:</strong> ₹8–12 LPA | 
+          <strong>Business Analyst:</strong> ₹10–15 LPA | 
+          <strong>ML Engineer:</strong> ₹12–18 LPA
+        </p>
+        <p class="sub-text">📈 Average salary uplift: 40–60%</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="success-card highlight">
+        <h4>👤 Rajesh Kumar – TCS Data Analyst</h4>
+        <p class="quote">
+          "Got hired at TCS as Senior Data Analyst just 8 weeks after completing the course! The practical projects were game-changers."
+        </p>
+        <p class="sub-text">Company: TCS | Salary: ₹9 LPA | Location: Bangalore</p>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- STYLES -->
+<style>
+.success-card {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+.success-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.10);
+  border-color: #0284c7;
+}
+
+.success-card h4 {
+  color: #0284c7;
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.success-card p {
+  color: #1e293b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.sub-text {
+  color: #64748b;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.rating {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #f59e0b;
+}
+
+.rating span {
+  color: #64748b;
+  font-size: 12px;
+  margin-left: 6px;
+}
+
+.quote {
+  font-style: italic;
+  background: #f1f5f9;
+  padding: 12px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+/* Highlight card (testimonial) */
+.highlight {
+  border-left: 4px solid #0284c7;
+  background: linear-gradient(to right,#ffffff,#f8fafc);
+}
+</style>
+
+
+  
+<!-- NEW: Comparison Section -->
+<!-- SECTION: SECTION #comparison-section -->
+<section class="section reveal" id="comparison-section">
+  <div class="container">
+    <h2>💪 Why Choose DataLearn10X?</h2>
+    <p class="sub">Compare us with traditional bootcamps and online courses</p>
+    <div class="comparison-table-wrap">
+    <table class="comparison-table">
+      <thead>
+        <tr style="background:linear-gradient(135deg,#0ea5e9,#2563eb);color:#fff">
+          <th style="padding:15px;text-align:left;font-weight:600">Feature</th>
+          <th style="padding:15px;text-align:left;font-weight:600">DataLearn10X</th>
+          <th style="padding:15px;text-align:left;font-weight:600">Typical Bootcamp</th>
+          <th style="padding:15px;text-align:left;font-weight:600">Online Courses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid rgba(126,175,245,.2)">
+          <td style="padding:15px;color:#67e8f9;font-weight:600">Price</td>
+          <td style="padding:15px">₹49-99 per course</td>
+          <td style="padding:15px">₹20,000-50,000</td>
+          <td style="padding:15px">₹500-2,000</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(126,175,245,.2)">
+          <td style="padding:15px;color:#67e8f9;font-weight:600">Duration</td>
+          <td style="padding:15px">Self-paced (16 weeks)</td>
+          <td style="padding:15px">3 months intensive</td>
+          <td style="padding:15px">Unlimited access</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(126,175,245,.2)">
+          <td style="padding:15px;color:#67e8f9;font-weight:600">Real Projects</td>
+          <td style="padding:15px">✅ 5+ projects</td>
+          <td style="padding:15px">✅ 2-3 projects</td>
+          <td style="padding:15px">❌ 0-1 project</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(126,175,245,.2)">
+          <td style="padding:15px;color:#67e8f9;font-weight:600">Job Support</td>
+          <td style="padding:15px">✅ Resume + Interview prep</td>
+          <td style="padding:15px">✅ Placement assistance</td>
+          <td style="padding:15px">❌ Limited/None</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(126,175,245,.2)">
+          <td style="padding:15px;color:#67e8f9;font-weight:600">Lifetime Access</td>
+          <td style="padding:15px">✅ Yes</td>
+          <td style="padding:15px">❌ No (3 months only)</td>
+          <td style="padding:15px">✅ Yes</td>
+        </tr>
+        <tr>
+          <td style="padding:15px;color:#67e8f9;font-weight:600">Mentor Support</td>
+          <td style="padding:15px">✅ 24/7 WhatsApp</td>
+          <td style="padding:15px">✅ Available (limited)</td>
+          <td style="padding:15px">❌ Limited/Forum only</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- NEW: Guarantee Section -->
+<!-- PREMIUM: Guarantee & Support Section (Light Theme) -->
+<!-- SECTION: SECTION #guarantee-section -->
+<section class="section reveal" id="guarantee-section" style="background:linear-gradient(to bottom,#f8fafc,#eef2f7);padding:60px 20px;">
+  <div class="container" style="max-width:900px;margin:auto;">
+
+    <div style="background:#ffffff;border-radius:16px;border:1px solid #e2e8f0;padding:26px;box-shadow:0 10px 30px rgba(0,0,0,0.06);">
+
+      <h2 style="color:#0f172a;margin-bottom:20px;text-align:center;">
+        🛡️ Our Guarantee & Support
+      </h2>
+
+      <!-- Item -->
+      <div class="support-item">
+        <span>✅</span>
+        <p><strong>7-Day Money-Back Guarantee:</strong> Not satisfied? Get your money back, no questions asked</p>
+      </div>
+
+      <!-- Item -->
+      <div class="support-item">
+        <span>📞</span>
+        <p><strong>24/7 WhatsApp Support:</strong> Get instant help for your doubts anytime</p>
+      </div>
+
+      <!-- Item -->
+      <div class="support-item">
+        <span>💡</span>
+        <p><strong>Personal Mentor Support:</strong> Get guidance on projects and career path</p>
+      </div>
+
+      <!-- Item -->
+      <div class="support-item">
+        <span>🎓</span>
+        <p><strong>Resume & Portfolio Building:</strong> Build a portfolio that gets interviews</p>
+      </div>
+
+      <!-- Item -->
+      <div class="support-item">
+        <span>🤝</span>
+        <p><strong>Job-Focused Guidance:</strong> Interview prep, LinkedIn optimization & salary tips</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- STYLES -->
+<style>
+.support-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  margin: 12px 0;
+  border-radius: 10px;
+  background: #f8fafc;
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.support-item:hover {
+  background: #f1f5f9;
+  transform: translateX(4px);
+  border-color: #0284c7;
+}
+
+.support-item span {
+  font-size: 22px;
+  min-width: 30px;
+}
+
+.support-item p {
+  margin: 0;
+  color: #1e293b;
+  font-size: 14px;
+  line-height: 1.5;
+}
+</style>
+  
+  <!-- SECTION: SECTION #buy-section -->
+  <section class="section reveal" id="buy-section">
+    <div class="container buy-wrap">
+      <h2>Buy Courses (Multi-select Cart)</h2>
+      <p class="sub">Select one or more courses. Combo overrides individual selection.</p>
+      <div class="cart-grid">
+        <label class="chk"><input type="checkbox" class="courseChk" value="Advance Excel" data-price="49"> Advance Excel (₹49)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Python" data-price="99"> Python (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Power BI" data-price="99"> Power BI (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Tableau" data-price="99"> Tableau (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="SQL (MySQL)" data-price="99"> SQL (MySQL) (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="AWS Full Stack Development" data-price="99"> AWS Full Stack Development (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Learn AI" data-price="99"> Learn AI (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="MongoDB" data-price="99"> MongoDB (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Git & GitHub" data-price="99"> Git &amp; GitHub (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Machine Learning + Deep Learning" data-price="99"> ML + DL (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Cheat Sheets and Interview Questions" data-price="19"> Cheat Sheets and Interview Questions (₹19)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="20000+ HR Emails" data-price="19"> 20000+ HR Emails (₹19)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Projects Only Course" data-price="99"> Projects (MRP ₹1000 | Offer ₹99)</label>
+        <label class="chk combo-offer"><input type="checkbox" id="comboCoreChk" value="Data Analytics Combo Core" data-price="1"> <b>Combo 1 (Core Analytics) ₹1</b><br><small style="font-weight:500;color:#475569">Excludes: AWS, Learn AI, MongoDB, Git &amp; GitHub</small></label>
+        <label class="chk combo-offer"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="2"> <b>Combo 2 (All Courses) ₹2</b><br><small style="font-weight:500;color:#475569">Includes all available paid courses</small></label>
+      </div>
+
+      <div class="total" id="totalText">Total: ₹0</div>
+      <div class="form">
+        <input type="text" id="name" placeholder="Enter Name"><br>
+        <input type="email" id="email" placeholder="Enter Email"><br>
+        <input type="text" id="mobile" placeholder="Enter Mobile Number" maxlength="10"><br>
+        <input type="text" id="profession" placeholder="Enter Current Profession (e.g., Student / Working Professional)"><br>
+        <button class="btn" id="buyBtn" onclick="payNow()">Buy Now</button>
+        <p id="msg"></p>
+        <a class="btn-link" href="check_email.html">Already Purchased? Access Course</a>
+        <a class="btn-link secondary" href="resume_maker.html">Free ATS Resume Maker</a>
+        <a class="btn-link secondary" href="ats_resume_checker.html">Advanced ATS Score Checker</a>
+        <a class="btn-link secondary" href="practice_hub.html">Free Practice Hub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: SECTION #student-feedbacks -->
+  <section class="section" id="student-feedbacks" style="padding-top:0">
+    <div class="container">
+      <div class="feedback-wrap">
+        <h2>Student Proofs (WhatsApp Screenshots)</h2>
+        
+        <div class="wa-gallery" aria-label="WhatsApp feedback screenshots moving right to left">
+          <div class="wa-gallery-track">
+            <img class="wa-proof" src="assets/whatsapp/ad1.jpg" alt="WhatsApp student feedback screenshot 1" loading="lazy">
+            <img class="wa-proof" src="assets/whatsapp/ad2.jpg" alt="WhatsApp student feedback screenshot 2" loading="lazy">
+            <img class="wa-proof" src="assets/whatsapp/ad3.jpg" alt="WhatsApp student feedback screenshot 3" loading="lazy">
+            <img class="wa-proof" src="assets/whatsapp/ad4.jpg" alt="WhatsApp student feedback screenshot 4" loading="lazy">
+            <img class="wa-proof" src="assets/whatsapp/ad5.jpg" alt="WhatsApp student feedback screenshot 5" loading="lazy">
+            <img class="wa-proof" src="assets/whatsapp/ad6.jpg" alt="WhatsApp student feedback screenshot 1 duplicate" loading="lazy">
+            <img class="wa-proof" src="assets/whatsapp/ad7.jpg" alt="WhatsApp student feedback screenshot 2 duplicate" loading="lazy">
+            <img class="wa-proof" src="assets/whatsapp/ad3.jpg" alt="WhatsApp student feedback screenshot 3 duplicate" loading="lazy">
+            <img class="wa-proof" src="assets/whatsapp/ad1.jpg" alt="WhatsApp student feedback screenshot 4 duplicate" loading="lazy">
+            <img class="wa-proof" src="assets/whatsapp/ad2.jpg" alt="WhatsApp student feedback screenshot 5 duplicate" loading="lazy">
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SECTION: SECTION #hiring-companies -->
+  <section class="section reveal" id="hiring-companies">
+    <div class="container">
+      <div class="hiring-wrap">
+        <h2>Top 10 Indian Companies Hiring Data Analysts</h2>
+        <p class="sub" style="margin-bottom:8px">For informational purposes only: these leading Indian companies hire data analyst candidates and offer strong packages with career growth opportunities.</p>
+        <div class="logo-marquee" aria-label="Top Indian companies logos moving in one row">
+          <div class="logo-track">
+          <div class="logo-card"><img src="assets/logos/tcs.svg" alt="TCS logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/tcs.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/infosys.svg" alt="Infosys logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/infosys.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/wipro.svg" alt="Wipro logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/wipro.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/hcltech.svg" alt="HCLTech logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/hcltech.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/techmahindra.svg" alt="Tech Mahindra logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/techmahindra.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/reliance.svg" alt="Reliance logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/reliance.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/icici.svg" alt="ICICI Bank logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/icici.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/hdfc.svg" alt="HDFC Bank logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/hdfc.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/flipkart.svg" alt="Flipkart logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/flipkart.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/zomato.svg" alt="Zomato logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/zomato.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/tcs.svg" alt="TCS logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/tcs.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/infosys.svg" alt="Infosys logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/infosys.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/wipro.svg" alt="Wipro logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/wipro.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/hcltech.svg" alt="HCLTech logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/hcltech.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/techmahindra.svg" alt="Tech Mahindra logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/techmahindra.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/reliance.svg" alt="Reliance logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/reliance.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/icici.svg" alt="ICICI Bank logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/icici.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/hdfc.svg" alt="HDFC Bank logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/hdfc.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/flipkart.svg" alt="Flipkart logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/flipkart.svg';"></div>
+          <div class="logo-card"><img src="assets/logos/zomato.svg" alt="Zomato logo" loading="lazy" onerror="this.onerror=null;this.src='assets/logos/zomato.svg';"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: SECTION #youtube-showcase -->
+  <section class="section reveal" id="youtube-showcase">
+    <div class="container">
+      <div class="youtube-wrap">
+        <h2>🎬 Learn from Our YouTube Reels & Videos</h2>
+        <p class="sub">Watch quick reels, practical demos, and full explainers from our channel. Stay updated with latest AI + analytics learning tips.</p>
+        <div class="yt-actions">
+          <a class="btn-link" id="ytChannelBtn" href="https://www.youtube.com/@DataLearn10X" target="_blank" rel="noopener noreferrer">Visit YouTube Channel</a>
+          <a class="btn-link secondary" href="#buy-section">Start Learning Today</a>
+        </div>
+        <div id="ytGrid" class="yt-grid" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: SECTION #faq-section -->
+  <section class="section reveal" id="faq-section" style="padding-top:0">
+    <div class="container">
+      <div class="faq-wrap">
+        <h2>Top FAQs</h2>
+        
+        <div class="faq-list">
+          <details class="faq-item"><summary>1) Are these live classes or prerecorded classes?</summary><div class="faq-answer">All major courses (Excel, Python, Power BI, and ML + DL) are prerecorded video courses, so you can learn anytime at your own pace.</div></details>
+          <details class="faq-item"><summary>2) I am a beginner. Can I start without coding experience?</summary><div class="faq-answer">Yes. The curriculum is beginner-friendly and starts from basics, then moves to practical projects and interview-ready skills.</div></details>
+          <details class="faq-item"><summary>3) How do I get access after payment?</summary><div class="faq-answer">After successful payment, access is activated automatically on your registered email and redirected success page.</div></details>
+          <details class="faq-item"><summary>4) Can I buy only one course instead of the combo?</summary><div class="faq-answer">Yes. You can select any individual course from the cart, or choose the combo offer.</div></details>
+          <details class="faq-item"><summary>5) Is there any validity period for course access?</summary><div class="faq-answer">Course access validity depends on the current offer policy. Typically, learners get long-term access for self-paced revision.</div></details>
+          <details class="faq-item"><summary>6) Will I get projects and practice material?</summary><div class="faq-answer">Yes. The courses are designed for practice with recorded videos, hands-on tasks, and interview preparation resources.</div></details>
+          <details class="faq-item"><summary>7) Do you provide placement/job support?</summary><div class="faq-answer">We provide interview preparation support, portfolio guidance, and resume tools to improve job readiness. We do not provide job/certificate guarantees.</div></details>
+          <details class="faq-item"><summary>8) What if I face issues in payment or course access?</summary><div class="faq-answer">You can contact support directly on WhatsApp or email, and the team will help resolve access/payment issues quickly.</div></details>
+          <details class="faq-item"><summary>9) Which course should I start first for data analytics?</summary><div class="faq-answer">Recommended path: Advance Excel → Python → Power BI → SQL → Tableau → Machine Learning + Deep Learning.</div></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <a id="whatsappLink" class="whatsapp" href="https://wa.me/919403030512?text=Hi%20DataLearn10X%2C%20I%20want%20details%20about%20courses" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp support">
+    <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
+  </a>
+
+  <!-- SECTION: FOOTER -->
+  <footer>
+    <div class="brand">DataLearn10X</div>
+    <div class="social-links" aria-label="Social media links">
+      <a id="linkedinLink" href="https://www.linkedin.com/in/shubhs-datascientist/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="https://img.icons8.com/color/48/linkedin.png" alt="LinkedIn"></a>
+      <a id="instagramLink" href="https://www.instagram.com/datalearn10x/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="https://img.icons8.com/color/48/instagram-new--v1.png" alt="Instagram"></a>
+      <a id="facebookLink" href="https://www.facebook.com/profile.php?id=61588186217289&name=xhp_nt__fb__action__open_user" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook"></a>
+    </div>
+    <div class="legal-links">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-of-service.html">Terms &amp; Conditions</a>
+    </div>
+    <div style="margin:8px 0 6px;"><a href="about.html" style="color:#bfdbfe;text-decoration:none;font-weight:600;">About Us</a></div>
+    © 2026 DataLearn10X <br> 📧 shubhams2018@gmail.com | 📞 9403030512 / 7507940073
+  </footer>
+
+<script>
+const SITE_CONFIG = window.DL10X_CONFIG || {};
+const SHEET_WEBAPP_URL = SITE_CONFIG.SHEET_WEBAPP_URL || "";
+const WHATSAPP_NUMBER = SITE_CONFIG.WHATSAPP_NUMBER || "919403030512";
+const WHATSAPP_TEXT = SITE_CONFIG.WHATSAPP_TEXT || "Hi DataLearn10X, I want details about courses";
+const SOCIAL_LINKS = SITE_CONFIG.SOCIAL_LINKS || {};
+const AD_IMAGES_BASE_URL = SITE_CONFIG.AD_IMAGES_BASE_URL || "";
+const MAX_ADS = 20;
+const AD_IMAGE_CANDIDATES = [
+  "ad1.jpg","ad3.jpg","ad4.jpg","ad5.png","ad6.png","ad7.png","ad8.jpg","ad9.png","ad10.png", "ax1 (1).png", "ax1 (2).png", 
+  "ax1 (3).png", "ax1 (4).png", "ax1 (5).png", "ax1 (6).png", "ax1 (7).png", "ax1 (8).png"
+];
+const AD_IMAGES = (function(){
+  const configured = Array.isArray(SITE_CONFIG.AD_IMAGES) ? SITE_CONFIG.AD_IMAGES : [];
+  const merged = configured.concat(AD_IMAGE_CANDIDATES);
+  const unique = [];
+  const seen = new Set();
+  merged.forEach(function(item){
+    if(typeof item !== 'string') return;
+    const trimmed = item.trim();
+    if(!trimmed || seen.has(trimmed)) return;
+    seen.add(trimmed);
+    unique.push(trimmed);
+  });
+  return unique;
+})();
+const YOUTUBE_CHANNEL_URL = SITE_CONFIG.YOUTUBE_CHANNEL_URL || "https://www.youtube.com/@DataLearn10X";
+const YOUTUBE_REELS = Array.isArray(SITE_CONFIG.YOUTUBE_REELS) && SITE_CONFIG.YOUTUBE_REELS.length
+  ? SITE_CONFIG.YOUTUBE_REELS
+  : [
+      { id: "VJrP2FUzKP0", title: "Data Analysis with Python (freeCodeCamp)", note: "Beginner-friendly data analysis learning session" },
+      { id: "2jGhQpbzHes", title: "SQL Data Analyst Portfolio Project", note: "Real-world SQL analytics project walkthrough" },
+      { id: "e6QD8lP-m6E", title: "Power BI Full Course Tutorial", note: "Dashboard + modeling + analytics basics" }
+    ];
+const comboCoreChk = document.getElementById('comboCoreChk');
+const comboAllChk = document.getElementById('comboAllChk');
+const individualChecks = Array.from(document.querySelectorAll('.courseChk'));
+const CORE_COMBO_EXCLUDED = ['AWS Full Stack Development','Learn AI','MongoDB','Git & GitHub'];
+const offerPill = document.getElementById('offerPill');
+const exploreSection = document.getElementById('explore-courses');
+const whatsappLink=document.getElementById('whatsappLink');
+if(whatsappLink){
+  whatsappLink.href='https://wa.me/'+encodeURIComponent(WHATSAPP_NUMBER)+'?text='+encodeURIComponent(WHATSAPP_TEXT);
+}
+const linkedinLink=document.getElementById('https://www.linkedin.com/in/shubhs-datascientist/');
+const instagramLink=document.getElementById('https://www.instagram.com/datalearn10x/');
+const facebookLink=document.getElementById('https://www.facebook.com/profile.php?id=61588186217289&name=xhp_nt__fb__action__open_user');
+if(linkedinLink && SOCIAL_LINKS.linkedin){linkedinLink.href=SOCIAL_LINKS.linkedin;}
+if(instagramLink && SOCIAL_LINKS.instagram){instagramLink.href=SOCIAL_LINKS.instagram;}
+if(facebookLink && SOCIAL_LINKS.facebook){facebookLink.href=SOCIAL_LINKS.facebook;}
+
+const adsSlider = document.getElementById('adsSlider');
+const adsSlideImage = document.getElementById('adsSlideImage');
+const adsDots = document.getElementById('adsDots');
+let adsIndex = 0;
+let activeAdImages = [];
+
+function resolveAdSrc(item){
+  if(/^https?:\/\//.test(item)) return encodeURI(item);
+  const safePath = encodeURI(item).replace(/^\//,'');
+  if(!AD_IMAGES_BASE_URL) return safePath;
+  return AD_IMAGES_BASE_URL.replace(/\/$/,'') + '/' + safePath;
+}
+
+function scrollToExploreFromAd(){
+  if(!exploreSection) return;
+  exploreSection.scrollIntoView({behavior:'smooth'});
+  track('ad_clicked',{target:'explore_courses',index:adsIndex});
+}
+
+function validateAdSources(items){
+  return Promise.all(items.map(function(item){
+    return new Promise(function(resolve){
+      const src = resolveAdSrc(item);
+      const probe = new Image();
+      probe.onload = function(){ resolve(src); };
+      probe.onerror = function(){
+        console.warn('Ad image not found:', src);
+        resolve(null);
+      };
+      probe.src = src;
+    });
+  })).then(function(results){
+    return results.filter(Boolean);
+  });
+}
+
+function renderAdDots(){
+  if(!adsDots) return;
+  adsDots.innerHTML='';
+  activeAdImages.forEach((_,i)=>{
+    const dot=document.createElement('button');
+    dot.className='ads-dot'+(i===adsIndex?' active':'');
+    dot.type='button';
+    dot.setAttribute('aria-label','Go to advertisement '+(i+1));
+    dot.addEventListener('click',function(){showAd(i,true);});
+    adsDots.appendChild(dot);
+  });
+}
+
+function showAd(index,manual){
+  if(!adsSlideImage || activeAdImages.length===0) return;
+  adsIndex=(index+activeAdImages.length)%activeAdImages.length;
+  adsSlideImage.style.opacity='0.2';
+  setTimeout(function(){
+    adsSlideImage.src=activeAdImages[adsIndex];
+    adsSlideImage.style.opacity='1';
+    renderAdDots();
+    if(manual) track('ad_slide_manual',{index:adsIndex});
+  },180);
+}
+
+if(adsSlider){
+  adsSlider.addEventListener('click',scrollToExploreFromAd);
+  adsSlider.addEventListener('keydown',function(e){
+    if(e.key==='Enter' || e.key===' '){ e.preventDefault(); scrollToExploreFromAd(); }
+  });
+}
+validateAdSources(AD_IMAGES).then(function(validImages){
+  activeAdImages = validImages.slice(0, MAX_ADS);
+  if(activeAdImages.length){
+    showAd(0,false);
+    setInterval(function(){ showAd(adsIndex+1,false); }, 3200);
+  } else {
+    console.warn('No valid ad images found. Please update AD_IMAGES in config.js.');
+  }
+});
+
+
+function initRevealAnimations(){
+  var revealEls = Array.from(document.querySelectorAll('.reveal'));
+  if(!('IntersectionObserver' in window)){
+    revealEls.forEach(function(el){el.classList.add('visible');});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.15});
+  revealEls.forEach(function(el){ io.observe(el); });
+}
+
+function renderYouTubeShowcase(){
+  var ytGrid = document.getElementById('ytGrid');
+  var ytBtn = document.getElementById('ytChannelBtn');
+  if(ytBtn){ ytBtn.href = YOUTUBE_CHANNEL_URL; }
+  if(!ytGrid) return;
+  var cards = YOUTUBE_REELS.map(function(video,idx){
+    var vid = (video && video.id) ? String(video.id).trim() : '';
+    if(!vid){ return ''; }
+    var title = (video && video.title) ? video.title : ('Featured Video ' + (idx+1));
+    var note = (video && video.note) ? video.note : 'Watch practical tips and technical walkthroughs.';
+    return '<article class="yt-card">'+
+      '<iframe class="yt-frame" loading="lazy" src="https://www.youtube-nocookie.com/embed/'+encodeURIComponent(vid)+'" title="'+title.replace(/"/g,'&quot;')+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'+
+      '<div class="yt-meta"><h3>'+title+'</h3><p>'+note+'</p></div>'+
+      '</article>';
+  }).filter(Boolean).join('');
+  ytGrid.innerHTML = cards;
+}
+
+function track(e,p){window.PSAAnalytics.trackEvent(e,p||{});}
+function setMsg(t,isErr){const m=document.getElementById('msg');m.style.color=isErr?'#b42318':'#157a38';m.innerText=t;}
+
+function getComboCoreCourses(){
+  return individualChecks.map(c=>c.value).filter(function(name){ return CORE_COMBO_EXCLUDED.indexOf(name)===-1; });
+}
+
+function getComboAllCourses(){
+  return individualChecks.map(c=>c.value);
+}
+
+function getSelectedCourses(){
+  if(comboCoreChk && comboCoreChk.checked) return getComboCoreCourses();
+  if(comboAllChk && comboAllChk.checked) return getComboAllCourses();
+  return individualChecks.filter(c=>c.checked).map(c=>c.value);
+}
+
+function currentTotal(){
+  if(comboCoreChk && comboCoreChk.checked) return 1;
+  if(comboAllChk && comboAllChk.checked) return 2;
+  return individualChecks.filter(c=>c.checked).reduce((sum,c)=>sum+Number(c.dataset.price||0),0);
+}
+
+function selectedItems(){
+  return getSelectedCourses().map(function(name){ return {name:name,price:0}; });
+}
+
+function updateTotal(){
+  document.getElementById('totalText').innerText = 'Total: ₹'+currentTotal();
+}
+
+function syncComboRule(){
+  var comboActive = (comboCoreChk && comboCoreChk.checked) || (comboAllChk && comboAllChk.checked);
+  if(comboCoreChk && comboCoreChk.checked && comboAllChk){ comboAllChk.checked=false; }
+  if(comboAllChk && comboAllChk.checked && comboCoreChk){ comboCoreChk.checked=false; }
+  if(comboActive){
+    individualChecks.forEach(c=>{c.checked=false;c.disabled=true;});
+  } else {
+    individualChecks.forEach(c=>c.disabled=false);
+  }
+  updateTotal();
+}
+
+function parsePreselect(){
+  const add = new URLSearchParams(location.search).get('add');
+  if(!add) return;
+  if(add === 'Data Analytics Combo' || add === 'Data Analytics Combo Core'){
+    if(comboCoreChk){comboCoreChk.checked=true;}
+    syncComboRule();
+  } else if(add === 'Data Analytics Combo All'){
+    if(comboAllChk){comboAllChk.checked=true;}
+    syncComboRule();
+  } else {
+    individualChecks.forEach(c=>{if(c.value===add)c.checked=true;});
+    updateTotal();
+  }
+  document.getElementById('buy-section').scrollIntoView({behavior:'smooth'});
+}
+
+function animateMetrics(){
+  document.querySelectorAll('.metric').forEach(el=>{
+    const target=Number(el.dataset.target||0);
+    const suffix=el.textContent.includes('x')?'x':'%';
+    let val=0;
+    const step=Math.max(1,Math.ceil(target/40));
+    const timer=setInterval(()=>{val+=step; if(val>=target){val=target; clearInterval(timer);} el.textContent=val+suffix;},20);
+  });
+}
+
+function validate(name,email,mobile,profession,items){
+  if(items.length===0) return 'Please select at least one course.';
+  if(!name||!email||!mobile||!profession) return 'Please fill all details.';
+  if(!/^\S+@\S+\.\S+$/.test(email)) return 'Please enter a valid email.';
+  if(!/^\d{10}$/.test(mobile)) return 'Please enter a valid 10-digit mobile number.';
+  return '';
+}
+
+function normalizeCourseName(name){
+  var n=(name||'').trim();
+  if(!n) return '';
+  var lower=n.toLowerCase();
+  if(lower==='data analytics combo' || lower==='combo' || lower==='data analytics combo core') return 'Data Analytics Combo Core';
+  if(lower==='data analytics combo all' || lower==='combo all') return 'Data Analytics Combo All';
+  if(lower==='sql' || lower==='my sql' || lower==='mysql' || lower==='sql (mysql)') return 'SQL (MySQL)';
+  if(lower==='ml + dl' || lower==='ml&dl' || lower==='ml and dl') return 'Machine Learning + Deep Learning';
+  return n;
+}
+
+function extractCourseList(raw){
+  if(Array.isArray(raw)) return raw.map(normalizeCourseName).filter(Boolean);
+  var text=(raw||'').trim();
+  if(!text) return [];
+  return text.split(/\s*\||,\s*/g).map(normalizeCourseName).filter(Boolean);
+}
+
+function mergeCourses(existingRaw,newCourses){
+  var merged=[];
+  extractCourseList(existingRaw).forEach(function(c){ if(merged.indexOf(c)===-1) merged.push(c); });
+  (newCourses||[]).map(normalizeCourseName).filter(Boolean).forEach(function(c){ if(merged.indexOf(c)===-1) merged.push(c); });
+  if(merged.indexOf('Data Analytics Combo All')>-1){ return ['Data Analytics Combo All']; }
+  if(merged.indexOf('Data Analytics Combo Core')>-1){ return ['Data Analytics Combo Core']; }
+  return merged;
+}
+
+function courseLinksMap(){
+  return {
+    'Advance Excel':'https://docs.google.com/document/d/17sFFEZu46ZhDcCEFbPNkx6IDlE8jtwgX/edit?usp=sharing&ouid=115361386427211984585&rtpof=true&sd=true',
+    'Python':'https://docs.google.com/document/d/1qtBZB4QOKTyaec_sIgevVmVPsVDsSNxq/edit?usp=sharing&ouid=115361386427211984585&rtpof=true&sd=true',
+    'Power BI':'https://docs.google.com/document/d/1eFgwr1Yx07Yqp13vsDVLCu_eib-fGs3f/edit?usp=sharing&ouid=115361386427211984585&rtpof=true&sd=true',
+    'Tableau':'course_tableau.html',
+    'SQL (MySQL)':'course_mysql.html',
+    'AWS Full Stack Development':'course_aws.html',
+    'Learn AI':'course_ai.html',
+    'MongoDB':'course_mongodb.html',
+    'Git & GitHub':'course_git_github.html',
+    'Machine Learning + Deep Learning':'https://docs.google.com/document/d/15K67voTDy7zAFRsKgIDZhO1bHcXOG2x9/edit?usp=sharing&ouid=115361386427211984585&rtpof=true&sd=true',
+    'Data Analytics Cheat Sheets':'https://drive.google.com/drive/folders/1H2kif4fbzkFshlt_hDd6BbsSwJw32L9e?usp=sharing',
+    '20000+ HR Emails':'https://drive.google.com/drive/folders/1f1COP7jmR3BVC4DeOjv4Vc0Z2N6FWCX0?usp=sharing',
+    'Projects Only Course':'course_projects_only.html'
+  };
+}
+
+function markPaid(email,paymentId,courses){
+  var db={};
+  try{db=JSON.parse(localStorage.getItem('paidUsers')||'{}');}catch(e){db={};}
+  var existing=db[email]||{};
+  var mergedCourses=mergeCourses(existing.allCourses || existing.course || '', courses || []);
+  var paymentIds=Array.isArray(existing.paymentIds)?existing.paymentIds.slice():[];
+  if(paymentId && paymentIds.indexOf(paymentId)===-1){ paymentIds.push(paymentId); }
+
+  db[email]={
+    paid:true,
+    paymentId:paymentId || existing.paymentId || '',
+    paymentIds:paymentIds,
+    course:mergedCourses.join(', '),
+    allCourses:mergedCourses,
+    paidAt:existing.paidAt || new Date().toISOString(),
+    updatedAt:new Date().toISOString()
+  };
+  localStorage.setItem('paidUsers',JSON.stringify(db));
+  return mergedCourses;
+}
+
+function savePayment(lead,paymentId,total){
+  if(!SHEET_WEBAPP_URL){
+    track('sheet_save_skipped',{reason:'missing_sheet_webapp_url'});
+    return Promise.resolve(false);
+  }
+
+  const links = courseLinksMap();
+  const purchasedLinks = lead.courses.map(function(name){
+    return { name:name, link:links[name] || '' };
+  }).filter(function(item){ return Boolean(item.link); });
+
+  const payload={
+    action:'purchase_save',
+    name:lead.name,
+    mobile:lead.mobile,
+    email:lead.email,
+    profession:lead.profession,
+    course:lead.courses.join(' | '),
+    total:String(total),
+    discount:'0',
+    netpayment:String(total),
+    payment_id:paymentId,
+    order_id:'',
+    signature:'',
+    send_course_email:'yes',
+    course_links_json:JSON.stringify(purchasedLinks)
+  };
+
+  const postBody = new URLSearchParams(payload);
+  return fetch(SHEET_WEBAPP_URL,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:postBody.toString()})
+    .then(r=>r.text())
+    .then(t=>{track('sheet_save_result',{result:(t||'').trim()}); return true;})
+    .catch(err=>{track('sheet_save_failed',{error:String(err)}); return false;});
+}
+
+function openAccess(lead,paymentId){
+  sessionStorage.setItem('paid','yes');
+  sessionStorage.setItem('paid_email',lead.email);
+  var allCourses = markPaid(lead.email,paymentId,lead.courses);
+  var visibleCourses = (allCourses && allCourses.length) ? allCourses.join(', ') : lead.courses.join(', ');
+  sessionStorage.setItem('paid_course',visibleCourses);
+  location.href='Excel_success_v3.html?email='+encodeURIComponent(lead.email)+'&course='+encodeURIComponent(visibleCourses);
+}
+
+function payNow(){
+  const items=selectedItems();
+  const total=currentTotal();
+  const lead={
+    name:document.getElementById('name').value.trim(),
+    email:document.getElementById('email').value.trim().toLowerCase(),
+    mobile:document.getElementById('mobile').value.trim(),
+    profession:document.getElementById('profession').value.trim(),
+    courses:items.map(i=>i.name)
+  };
+
+  const err=validate(lead.name,lead.email,lead.mobile,lead.profession,items);
+  if(err){setMsg(err,true);return;}
+
+  localStorage.setItem('latestLead',JSON.stringify(lead));
+  track('buy_now_clicked',{courses:lead.courses,total:total});
+  document.getElementById('buyBtn').disabled=true;
+
+  if(total===0){
+    const paymentId='FREE-COMBO-'+Date.now();
+    setMsg('Combo offer activated. Unlocking your access...',false);
+    track('payment_success',{payment_id:paymentId,courses:lead.courses,total:total,mode:'combo_offer'});
+    savePayment(lead,paymentId,total).finally(()=>openAccess(lead,paymentId));
+    return;
+  }
+
+  setMsg('Opening secure checkout...',false);
+  const options={
+    key:'rzp_live_yA31xxMPut8Ech',
+    amount:total*100,
+    currency:'INR',
+    name:'DataLearn10X',
+    description:lead.courses.join(', '),
+    prefill:{name:lead.name,email:lead.email,contact:lead.mobile},
+    notes:{courses:lead.courses.join(', '),profession:lead.profession},
+    handler:function(res){
+      const paymentId=res.razorpay_payment_id||'';
+      track('payment_success',{payment_id:paymentId,courses:lead.courses,total:total});
+      savePayment(lead,paymentId,total).finally(()=>openAccess(lead,paymentId));
+    },
+    modal:{
+      ondismiss:function(){
+        document.getElementById('buyBtn').disabled=false;
+        setMsg('Checkout closed. Please try again.',true);
+      }
+    }
+  };
+
+  const rzp=new Razorpay(options);
+  rzp.on('payment.failed',function(resp){
+    document.getElementById('buyBtn').disabled=false;
+    setMsg('Payment failed. Please retry.',true);
+    track('payment_failed',{reason:resp.error&&resp.error.description?resp.error&&resp.error.description:'unknown'});
+  });
+
+  rzp.open();
+}
+
+if(offerPill && exploreSection){
+  offerPill.addEventListener('click',function(e){
+    e.preventDefault();
+    exploreSection.scrollIntoView({behavior:'smooth'});
+    track('offer_pill_clicked',{target:'explore_courses'});
+  });
+}
+
+function toggleLP(el){
+  var course = el.closest('.lp-course');
+  if(!course) return;
+  var isOpen = course.classList.contains('open');
+  document.querySelectorAll('.lp-course').forEach(function(item){
+    item.classList.remove('open');
+    var header = item.querySelector('.lp-header');
+    if(header){header.setAttribute('aria-expanded','false');}
+  });
+  if(!isOpen){
+    course.classList.add('open');
+    el.setAttribute('aria-expanded','true');
+  }
+}
+
+if(comboCoreChk){comboCoreChk.addEventListener('change',syncComboRule);}
+if(comboAllChk){comboAllChk.addEventListener('change',syncComboRule);}
+individualChecks.forEach(c=>c.addEventListener('change',updateTotal));
+parsePreselect();
+updateTotal();
+animateMetrics();
+initRevealAnimations();
+renderYouTubeShowcase();
+track('landing_page_viewed',{page:'index_datalearn10x'});
+</script>
+</body>
+</html>
