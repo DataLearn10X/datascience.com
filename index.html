@@ -56,12 +56,12 @@
     .cart-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:16px 0}
     .chk{display:flex;gap:8px;align-items:flex-start;background:#ffffff;border:1px solid #bfdbfe;border-radius:12px;padding:11px;color:#0f172a;font-weight:700;box-shadow:0 6px 14px rgba(15,23,42,.06)}
     .chk input{margin-top:3px}
-    .chk.combo-offer{background:#ffffff;border-color:#93c5fd;color:#0f172a;font-weight:700}
+    .chk.combo-offer{position:relative;background:#ffffff;border-color:#93c5fd;color:#0f172a;font-weight:700;padding-top:22px}
     .chk.combo-offer b{color:#0f172a}
-    .chk.combo-core{background:#eff6ff;border-color:#93c5fd}
+    .chk.combo-core{background:#e5e7eb;border-color:#cbd5e1}
     .chk.combo-all{background:#fefce8;border-color:#facc15}
-    .combo-mini-badge{display:inline-flex;align-items:center;margin-left:8px;padding:2px 8px;border-radius:999px;font-size:10px;line-height:1.1;font-weight:700;vertical-align:middle}
-    .combo-mini-badge.best-value{background:#dbeafe;color:#1d4ed8;border:1px solid #93c5fd}
+    .combo-mini-badge{position:absolute;top:8px;right:8px;display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;font-size:10px;line-height:1.1;font-weight:700;vertical-align:middle;box-shadow:0 2px 8px rgba(15,23,42,.12)}
+    .combo-mini-badge.best-value{background:#f8fafc;color:#334155;border:1px solid #94a3b8}
     .combo-mini-badge.most-popular{background:#fef3c7;color:#92400e;border:1px solid #f59e0b}
     .form{margin-top:10px;text-align:center}
     .form input,.form select{width:92%;max-width:380px;padding:12px;margin:6px;border:1px solid rgba(134,187,255,.38);border-radius:8px;background:rgba(8,19,42,.7);color:#e8f2ff}
@@ -223,6 +223,7 @@
       #program-for .audience-item p{font-size:12px}
       #candidate-benefits .audience-item h3{font-size:15px}
       #candidate-benefits .audience-item p{font-size:12px}
+      #buy-section .buy-wrap h2 .cart-subtitle{display:block;font-size:18px}
     }
   </style>
   <link rel="stylesheet" href="theme_professional.css">
@@ -238,12 +239,12 @@
     #buy-section .buy-wrap h2{color:#0b1f4a!important;font-weight:800!important;text-shadow:none!important}
     #buy-section .buy-wrap .sub{color:#1e3a8a!important;font-weight:600!important}
     .chk{background:#ffffff!important;border-color:#bfdbfe!important;color:#0f172a!important;font-weight:700!important}
-    .chk.combo-offer{background:#ffffff!important;border-color:#93c5fd!important;color:#0f172a!important}
+    .chk.combo-offer{position:relative!important;background:#ffffff!important;border-color:#93c5fd!important;color:#0f172a!important;padding-top:22px!important}
     .chk.combo-offer b{color:#0f172a!important}
-    .chk.combo-core{background:#eff6ff!important;border-color:#93c5fd!important}
+    .chk.combo-core{background:#e5e7eb!important;border-color:#cbd5e1!important}
     .chk.combo-all{background:#fefce8!important;border-color:#facc15!important}
-    .combo-mini-badge{display:inline-flex!important;align-items:center!important;margin-left:8px!important;padding:2px 8px!important;border-radius:999px!important;font-size:10px!important;line-height:1.1!important;font-weight:700!important;vertical-align:middle!important}
-    .combo-mini-badge.best-value{background:#dbeafe!important;color:#1d4ed8!important;border:1px solid #93c5fd!important}
+    .combo-mini-badge{position:absolute!important;top:8px!important;right:8px!important;display:inline-flex!important;align-items:center!important;padding:2px 8px!important;border-radius:999px!important;font-size:10px!important;line-height:1.1!important;font-weight:700!important;vertical-align:middle!important;box-shadow:0 2px 8px rgba(15,23,42,.12)!important}
+    .combo-mini-badge.best-value{background:#f8fafc!important;color:#334155!important;border:1px solid #94a3b8!important}
     .combo-mini-badge.most-popular{background:#fef3c7!important;color:#92400e!important;border:1px solid #f59e0b!important}
     .total{color:#065f46!important;font-weight:800!important}
     footer{background:linear-gradient(135deg,#0b1220,#12335f,#2563eb)!important}
@@ -727,7 +728,7 @@
   <!-- SECTION: SECTION #buy-section -->
   <section class="section reveal" id="buy-section">
     <div class="container buy-wrap">
-      <h2>Buy Courses (Multi-select Cart)</h2>
+      <h2>Buy Courses <span class="cart-subtitle">(Multi-select Cart)</span></h2>
       <p class="sub">Select one or more courses. Combo overrides individual selection.</p>
       <div class="cart-grid">
         <label class="chk"><input type="checkbox" class="courseChk" value="Advance Excel" data-price="49"> Advance Excel (₹49)</label>
@@ -743,8 +744,8 @@
         <label class="chk"><input type="checkbox" class="courseChk" value="Cheat Sheets and Interview Questions" data-price="19"> Cheat Sheets and Interview Questions (₹19)</label>
         <label class="chk"><input type="checkbox" class="courseChk" value="20000+ HR Emails" data-price="19"> 20000+ HR Emails (₹19)</label>
         <label class="chk"><input type="checkbox" class="courseChk" value="Projects Only Course" data-price="99"> Projects (MRP ₹1000 | Offer ₹99)</label>
-        <label class="chk combo-offer combo-core"><input type="checkbox" id="comboCoreChk" value="Data Analytics Combo Core" data-price="1"> <b>Combo 1 (Core Analytics) ₹1 <span class="combo-mini-badge best-value">Best Value</span></b><br><small style="font-weight:500;color:#475569">Excludes: AWS, Learn AI, MongoDB, Git &amp; GitHub</small></label>
-        <label class="chk combo-offer combo-all"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="2"> <b>Combo 2 (All Courses) ₹2 <span class="combo-mini-badge most-popular">Most Popular</span></b><br><small style="font-weight:500;color:#475569">Includes all available paid courses</small></label>
+        <label class="chk combo-offer combo-core"><input type="checkbox" id="comboCoreChk" value="Data Analytics Combo Core" data-price="1"> <b>Combo 1 (Core Analytics) ₹1</b><span class="combo-mini-badge best-value">Best Value</span><br><small style="font-weight:500;color:#475569">Excludes: AWS, Learn AI, MongoDB, Git &amp; GitHub</small></label>
+        <label class="chk combo-offer combo-all"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="2"> <b>Combo 2 (All Courses) ₹2</b><span class="combo-mini-badge most-popular">Most Popular</span><br><small style="font-weight:500;color:#475569">Includes all available paid courses</small></label>
       </div>
 
       <div class="total" id="totalText">Total: ₹0</div>
