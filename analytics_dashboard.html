@@ -298,7 +298,7 @@ function logoutDashboard(){
 
 async function clearDataSecure(){
   var step1 = prompt('Type "CLEAR LOCAL" to remove this browser analytics cache:');
-  if(step1 !== "CLEAR LOCAL"){
+  if(String(step1 || "").trim().toUpperCase() !== "CLEAR LOCAL"){
     alert("Cancelled. Local analytics not deleted.");
     return;
   }
@@ -324,7 +324,6 @@ async function clearDataSecure(){
 
   localStorage.removeItem(PSAAnalytics.STORAGE_KEY);
   alert("Local analytics cache cleared for this browser. Remote sheet data was not deleted.");
-  PSAAnalytics.trackEvent("dashboard_local_cache_cleared", {user: session.userId});
   await render();
 }
 
