@@ -264,7 +264,7 @@
       <span class="hero-chip">🔐 Secure Checkout</span>
     </div>
     <div class="glow-line" aria-hidden="true"></div>
-    <a class="pill" id="offerPill" href="#explore-courses" aria-label="Go to Explore Courses">🔥 All Courses Bundle Intro Offer ₹0</a>
+    <a class="pill" id="offerPill" href="#explore-courses" aria-label="Go to Explore Courses">🔥 All Courses Bundle Intro Offer ₹299</a>
       </header>
 
   <!-- SECTION: SECTION .ads-section -->
@@ -1060,8 +1060,8 @@ function getSelectedCourses(){
 }
 
 function currentTotal(){
-  if(comboCoreChk && comboCoreChk.checked) return 1;
-  if(comboAllChk && comboAllChk.checked) return 2;
+  if(comboCoreChk && comboCoreChk.checked) return 199;
+  if(comboAllChk && comboAllChk.checked) return 299;
   return individualChecks.filter(c=>c.checked).reduce((sum,c)=>sum+Number(c.dataset.price||0),0);
 }
 
