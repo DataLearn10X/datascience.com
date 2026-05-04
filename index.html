@@ -473,6 +473,47 @@
     </div>
   </section>
 
+  <!-- SECTION: SECTION #buy-section -->
+  <section class="section reveal" id="buy-section">
+    <div class="container buy-wrap">
+      <h2>Buy Courses <span class="cart-subtitle">(Multi-select Cart)</span></h2>
+      <p class="sub">Select one or more courses. Combo overrides individual selection.</p>
+      <div class="cart-grid">
+        <label class="chk"><input type="checkbox" class="courseChk" value="Advance Excel" data-price="49"> Advance Excel (₹49)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Python" data-price="99"> Python (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Power BI" data-price="99"> Power BI (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Tableau" data-price="99"> Tableau (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="SQL (MySQL)" data-price="99"> SQL (MySQL) (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="AWS Full Stack Development" data-price="99"> AWS Full Stack Development (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Learn AI" data-price="99"> Learn AI (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="MongoDB" data-price="99"> MongoDB (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Git & GitHub" data-price="99"> Git &amp; GitHub (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Machine Learning + Deep Learning" data-price="99"> ML + DL (₹99)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Cheat Sheets and Interview Questions" data-price="19"> Cheat Sheets and Interview Questions (₹19)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="20000+ HR Emails" data-price="19"> 20000+ HR Emails (₹19)</label>
+        <label class="chk"><input type="checkbox" class="courseChk" value="Projects Only Course" data-price="99"> Projects (MRP ₹1000 | Offer ₹99)</label>
+        <label class="chk combo-offer combo-core"><input type="checkbox" id="comboCoreChk" value="Data Analytics Combo Core" data-price="199"> <b>Combo 1 (Core Analytics) ₹199</b><span class="combo-mini-badge best-value">Best Value</span><br><small style="font-weight:500;color:#475569">Excludes: AWS, Learn AI, MongoDB, Git &amp; GitHub</small></label>
+        <label class="chk combo-offer combo-all"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="299"> <b>Combo 2 (All Courses) ₹299</b><span class="combo-mini-badge most-popular">Most Popular</span><br><small style="font-weight:500;color:#475569">Includes all available paid courses</small></label>
+      </div>
+
+      <div class="total" id="totalText">Total: ₹0</div>
+      <div class="form">
+        <input type="text" id="name" placeholder="Enter Name"><br>
+        <input type="email" id="email" placeholder="Enter Email"><br>
+        <input type="text" id="mobile" placeholder="Enter Mobile Number" maxlength="10"><br>
+        <input type="text" id="profession" placeholder="Enter Current Profession (e.g., Student / Working Professional)"><br>
+        <button class="btn" id="buyBtn" onclick="payNow()">Buy Now</button>
+        <p id="msg"></p>
+        <a class="btn-link" href="check_email.html">Already Purchased? Access Course</a>
+        <a class="btn-link secondary" href="resume_maker.html">Free ATS Resume Maker</a>
+        <a class="btn-link secondary" href="ats_resume_checker.html">Advanced ATS Score Checker</a>
+        <a class="btn-link secondary" href="practice_hub.html">Free Practice Hub</a>
+      </div>
+    </div>
+  </section>
+
+
+
   
 <!-- NEW: Success Stories Section -->
 <!-- PREMIUM: Success Stories Section (Light Theme) -->
@@ -726,45 +767,6 @@
 }
 </style>
   
-  <!-- SECTION: SECTION #buy-section -->
-  <section class="section reveal" id="buy-section">
-    <div class="container buy-wrap">
-      <h2>Buy Courses <span class="cart-subtitle">(Multi-select Cart)</span></h2>
-      <p class="sub">Select one or more courses. Combo overrides individual selection.</p>
-      <div class="cart-grid">
-        <label class="chk"><input type="checkbox" class="courseChk" value="Advance Excel" data-price="49"> Advance Excel (₹49)</label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Python" data-price="99"> Python (₹99)</label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Power BI" data-price="99"> Power BI (₹99)</label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Tableau" data-price="99"> Tableau (₹99)</label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="SQL (MySQL)" data-price="99"> SQL (MySQL) (₹99)</label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="AWS Full Stack Development" data-price="99"> AWS Full Stack Development (₹99)</label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Learn AI" data-price="99"> Learn AI (₹99)</label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="MongoDB" data-price="99"> MongoDB (₹99)</label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Git & GitHub" data-price="99"> Git &amp; GitHub (₹99)</label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Machine Learning + Deep Learning" data-price="99"> ML + DL (₹99)</label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Cheat Sheets and Interview Questions" data-price="19"> Cheat Sheets and Interview Questions (₹19)</label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="20000+ HR Emails" data-price="19"> 20000+ HR Emails (₹19)</label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Projects Only Course" data-price="99"> Projects (MRP ₹1000 | Offer ₹99)</label>
-        <label class="chk combo-offer combo-core"><input type="checkbox" id="comboCoreChk" value="Data Analytics Combo Core" data-price="199"> <b>Combo 1 (Core Analytics) ₹199</b><span class="combo-mini-badge best-value">Best Value</span><br><small style="font-weight:500;color:#475569">Excludes: AWS, Learn AI, MongoDB, Git &amp; GitHub</small></label>
-        <label class="chk combo-offer combo-all"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="299"> <b>Combo 2 (All Courses) ₹299</b><span class="combo-mini-badge most-popular">Most Popular</span><br><small style="font-weight:500;color:#475569">Includes all available paid courses</small></label>
-      </div>
-
-      <div class="total" id="totalText">Total: ₹0</div>
-      <div class="form">
-        <input type="text" id="name" placeholder="Enter Name"><br>
-        <input type="email" id="email" placeholder="Enter Email"><br>
-        <input type="text" id="mobile" placeholder="Enter Mobile Number" maxlength="10"><br>
-        <input type="text" id="profession" placeholder="Enter Current Profession (e.g., Student / Working Professional)"><br>
-        <button class="btn" id="buyBtn" onclick="payNow()">Buy Now</button>
-        <p id="msg"></p>
-        <a class="btn-link" href="check_email.html">Already Purchased? Access Course</a>
-        <a class="btn-link secondary" href="resume_maker.html">Free ATS Resume Maker</a>
-        <a class="btn-link secondary" href="ats_resume_checker.html">Advanced ATS Score Checker</a>
-        <a class="btn-link secondary" href="practice_hub.html">Free Practice Hub</a>
-      </div>
-    </div>
-  </section>
-
   <!-- SECTION: SECTION #student-feedbacks -->
   <section class="section" id="student-feedbacks" style="padding-top:0">
     <div class="container">
