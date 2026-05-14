@@ -63,6 +63,7 @@
     .chk.combo-all{animation-delay:.25s}
     .combo-mini-badge{position:absolute;top:8px;right:8px;display:inline-flex;align-items:center;justify-content:center;min-width:104px;padding:2px 10px;border-radius:999px;font-size:10px;line-height:1.1;font-weight:700;vertical-align:middle;box-shadow:0 2px 8px rgba(15,23,42,.12);background:#dc2626;color:#fff;border:1px solid #b91c1c}
     .combo-mini-badge.best-value,.combo-mini-badge.most-popular{background:#dc2626;color:#fff;border:1px solid #b91c1c}
+.combo-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-right:110px}.combo-row .combo-title{font-weight:800}.combo-row .combo-meta{font-size:12px;color:#475569;font-weight:600}.combo-row .combo-price{font-weight:800;color:#0f172a}.combo-row .combo-sep{color:#94a3b8;font-weight:700}
     @keyframes comboFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
     .form{margin-top:10px;text-align:center}
     .form input,.form select{width:92%;max-width:380px;padding:12px;margin:6px;border:1px solid rgba(134,187,255,.38);border-radius:8px;background:rgba(8,19,42,.7);color:#e8f2ff}
@@ -247,6 +248,7 @@
     .chk.combo-all{animation-delay:.25s!important}
     .combo-mini-badge{position:absolute!important;top:8px!important;right:8px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;min-width:104px!important;padding:2px 10px!important;border-radius:999px!important;font-size:10px!important;line-height:1.1!important;font-weight:700!important;vertical-align:middle!important;box-shadow:0 2px 8px rgba(15,23,42,.12)!important;background:#dc2626!important;color:#fff!important;border:1px solid #b91c1c!important}
     .combo-mini-badge.best-value,.combo-mini-badge.most-popular{background:#dc2626!important;color:#fff!important;border:1px solid #b91c1c!important}
+.combo-row{display:flex!important;align-items:center!important;gap:8px!important;flex-wrap:wrap!important;padding-right:110px!important}.combo-row .combo-title{font-weight:800!important}.combo-row .combo-meta{font-size:12px!important;color:#475569!important;font-weight:600!important}.combo-row .combo-price{font-weight:800!important;color:#0f172a!important}.combo-row .combo-sep{color:#94a3b8!important;font-weight:700!important}
     .total{color:#065f46!important;font-weight:800!important}
     footer{background:linear-gradient(135deg,#0b1220,#12335f,#2563eb)!important}
   </style>
@@ -362,8 +364,8 @@
       <h2>Buy Courses <span class="cart-subtitle">(Multi-select Cart)</span></h2>
       <p class="sub">Select one or more courses. Combo overrides individual selection.</p>
       <div class="cart-grid">
-        <label class="chk combo-offer combo-core"><input type="checkbox" id="comboCoreChk" value="Data Analytics Combo Core" data-price="199"> <b style="display:block">Combo 1 (Core Analytics)</b><span class="combo-mini-badge best-value">Best Value</span><small style="display:block;margin-top:4px;font-weight:500;color:#475569">Excludes: AWS, Learn AI, MongoDB, Git &amp; GitHub</small><b style="display:block;margin-top:6px">₹199</b></label>
-        <label class="chk combo-offer combo-all"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="299"> <b style="display:block">Combo 2 (All Courses)</b><span class="combo-mini-badge most-popular">Most Popular</span><small style="display:block;margin-top:4px;font-weight:500;color:#475569">Includes all available paid courses</small><b style="display:block;margin-top:6px">₹299</b></label>
+        <label class="chk combo-offer combo-core"><input type="checkbox" id="comboCoreChk" value="Data Analytics Combo Core" data-price="199"><span class="combo-mini-badge best-value">Best Value</span><div class="combo-row"><span class="combo-title">Combo 1 (Core Analytics)</span><span class="combo-sep">|</span><span class="combo-meta">Excludes: AWS, Learn AI, MongoDB, Git &amp; GitHub</span><span class="combo-sep">|</span><span class="combo-price">₹199</span></div></label>
+        <label class="chk combo-offer combo-all"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="299"><span class="combo-mini-badge most-popular">Most Popular</span><div class="combo-row"><span class="combo-title">Combo 2 (All Courses)</span><span class="combo-sep">|</span><span class="combo-meta">Includes all available paid courses</span><span class="combo-sep">|</span><span class="combo-price">₹299</span></div></label>
         <label class="chk"><input type="checkbox" class="courseChk" value="Advance Excel" data-price="49"> Advance Excel (₹49)</label>
         <label class="chk"><input type="checkbox" class="courseChk" value="Python" data-price="99"> Python (₹99)</label>
         <label class="chk"><input type="checkbox" class="courseChk" value="Power BI" data-price="99"> Power BI (₹99)</label>
