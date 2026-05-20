@@ -37,6 +37,11 @@ textarea:focus{outline:2px solid #6991ff}
 .lv{padding:8px;border-radius:10px;border:1px solid #c8d7ef;background:#edf4ff;color:#1f3a60;cursor:pointer;font-weight:700}
 .lv.lock{opacity:.45;cursor:not-allowed}.lv.active{background:#3458c9}.lv.done{background:#1f8f52}
 .tips{margin-top:10px;font-size:13px;color:var(--muted);line-height:1.6}
+.tier-strip{margin-top:10px;display:grid;grid-template-columns:repeat(3,minmax(120px,1fr));gap:8px}
+.tier{background:#f7fbff;border:1px solid #d2dff3;border-radius:10px;padding:8px}
+.tier b{display:block;font-size:13px}
+.tier small{display:block;color:#4b5f7d;font-size:11px;line-height:1.4}
+.tier.active{border-color:#2563eb;background:#eaf2ff}
 
 .finger-guide{margin-top:12px;background:#ffffff;border:1px solid #d2dff3;border-radius:12px;padding:10px}
 .finger-guide h4{margin:0 0 8px}
@@ -104,6 +109,7 @@ textarea:focus{outline:2px solid #6991ff}
       </div>
       <div id="msg">Tip: Focus on accuracy first, then speed. Complete a level to unlock the next.</div>
             <div class="tips">Suggested routine: 20 minutes daily (10 levels/day). Track improvement by comparing your best WPM at the same level each week.</div>
+      <div id="tierStrip" class="tier-strip"></div>
 
       <div class="g-card">
         <b>🧠 Mistake Finder (Live)</b>
@@ -247,7 +253,7 @@ textarea:focus{outline:2px solid #6991ff}
     board: JSON.parse(localStorage.getItem('typing_weekly_board')||'[]'),
     syncEmail: localStorage.getItem('typing_sync_email')||'',
     syncStudentName: localStorage.getItem('typing_sync_name')||'',
-    timer:null, started:false, secs:120, typed:'', streak:0
+    timer:null, started:false, secs:180, typed:'', streak:0
   };
 
   const $ = id=>document.getElementById(id);
@@ -257,8 +263,15 @@ textarea:focus{outline:2px solid #6991ff}
   const badgeWrap=$('badgeWrap'), boardList=$('boardList'), playerName=$('playerName'), certificateBtn=$('certificateBtn'), sampleCertificateBtn=$('sampleCertificateBtn');
   const mistakeSummary=$('mistakeSummary'), mistakeList=$('mistakeList');
   const progressEmail=$('progressEmail'), progressStudentName=$('progressStudentName'), loadProgressBtn=$('loadProgressBtn'), syncProgressBtn=$('syncProgressBtn');
+  const tierStrip=$('tierStrip');
 
   const keyEls=Array.from(document.querySelectorAll('.key'));
+
+  function levelProfile(level){
+    if(level<=35) return {tier:'Beginner', time:180, minCoverage:0.65};
+    if(level<=70) return {tier:'Intermediate', time:150, minCoverage:0.72};
+    return {tier:'Advanced', time:120, minCoverage:0.8};
+  }
 
   function esc(ch){
     return String(ch)
@@ -441,6 +454,16 @@ textarea:focus{outline:2px solid #6991ff}
     }
   }
 
+  function renderTierStrip(){
+    const profile=levelProfile(s.level);
+    const cards=[
+      {name:'Beginner', meta:'L1-L35 • 180s • 65% text coverage'},
+      {name:'Intermediate', meta:'L36-L70 • 150s • 72% text coverage'},
+      {name:'Advanced', meta:'L71-L100 • 120s • 80% text coverage'}
+    ];
+    tierStrip.innerHTML=cards.map(c=>`<div class="tier ${c.name===profile.tier?'active':''}"><b>${c.name}</b><small>${c.meta}</small></div>`).join('');
+  }
+
   function renderPrompt(){
     const target=(levels[s.level-1]||{}).text||'', val=input.value;
     let html='';
@@ -497,16 +520,18 @@ textarea:focus{outline:2px solid #6991ff}
   function finish(){
     clearInterval(s.timer); s.started=false; input.disabled=true;
     const target=(levels[s.level-1]||{}).text||'', st=stats();
-    const pass=input.value===target && st.acc>=95;
+    const coverage=target.length?input.value.length/target.length:0;
+    const profile=levelProfile(s.level);
+    const pass=st.acc>=95 && (input.value===target || coverage>=profile.minCoverage);
     if(pass){
       s.streak += 1;
       if(!s.bestWpm[s.level] || st.wpm>s.bestWpm[s.level]) s.bestWpm[s.level]=st.wpm;
       if(s.level===s.unlocked && s.unlocked<100) s.unlocked++;
-      msg.textContent=`Great! Level ${s.level} completed. WPM ${st.wpm}, Accuracy ${st.acc}%.`;
+      msg.textContent=`Great! Level ${s.level} cleared (${profile.tier}). Accuracy ${st.acc}% and ${(coverage*100).toFixed(0)}% coverage met the unlock rule.`;
       msg.style.color='#9df5ba';
     }else{
       s.streak=0;
-      msg.textContent='Level not completed. Type the full paragraph exactly with at least 95% accuracy and try again.';
+      msg.textContent=`Level not completed. Need at least 95% accuracy and ${Math.round(profile.minCoverage*100)}% paragraph coverage (or full paragraph).`;
       msg.style.color='#ffd7a1';
     }
     save(); render();
@@ -527,8 +552,9 @@ textarea:focus{outline:2px solid #6991ff}
   }
 
   function resetLevel(){
-    clearInterval(s.timer); s.started=false; s.secs=120; input.value=''; input.disabled=false;
-    timeEl.textContent='120s'; wpmEl.textContent='0'; cpmEl.textContent='0'; accEl.textContent='100%';
+    const profile=levelProfile(s.level);
+    clearInterval(s.timer); s.started=false; s.secs=profile.time; input.value=''; input.disabled=false;
+    timeEl.textContent=profile.time+'s'; wpmEl.textContent='0'; cpmEl.textContent='0'; accEl.textContent='100%';
     renderPrompt(); renderLevels();
     keyEls.forEach(el=>el.classList.remove('correct','wrong'));
     mistakeSummary.textContent='Start typing to see live mistake analysis.';
@@ -540,8 +566,9 @@ textarea:focus{outline:2px solid #6991ff}
   function render(){
     levelNum.textContent=s.level;
     bestText.textContent='Best WPM: '+(s.bestWpm[s.level]||0);
-    levelCondition.textContent='Condition: '+((levels[s.level-1]||{}).condition||'Practice');
-    renderLevels(); renderPrompt(); stats(); renderProgress(); renderGamification();
+    const profile=levelProfile(s.level);
+    levelCondition.textContent=`Condition: ${((levels[s.level-1]||{}).condition||'Practice')} • ${profile.tier} • 95%+ accuracy • ${Math.round(profile.minCoverage*100)}% coverage`;
+    renderLevels(); renderPrompt(); stats(); renderProgress(); renderGamification(); renderTierStrip();
   }
 
   $('startBtn').onclick=start;
@@ -560,7 +587,7 @@ textarea:focus{outline:2px solid #6991ff}
   };
   $('nextBtn').onclick=()=>{
     if(s.level<s.unlocked){ s.level++; resetLevel(); render(); }
-    else msg.textContent='Complete current level first to unlock the next one.';
+    else msg.textContent='Need 95%+ accuracy with required coverage to unlock the next level.';
   };
   input.addEventListener('keydown', (e)=>{
     if(!s.started) start();
