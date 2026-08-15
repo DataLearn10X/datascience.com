@@ -65,11 +65,13 @@
     .combo-mini-badge.best-value,.combo-mini-badge.most-popular{background:#dc2626;color:#fff;border:1px solid #b91c1c}
     .chk.combo-offer .combo-mini-badge{position:absolute;top:8px;right:8px;z-index:2}
 
-    .sale-banner{margin-top:22px;position:relative;z-index:1;display:grid;gap:14px;max-width:900px;margin-left:auto;margin-right:auto;padding:18px;border:1px solid rgba(254,240,138,.55);border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.06));box-shadow:0 18px 42px rgba(2,6,23,.32);backdrop-filter:blur(10px)}
-    .sale-title{font-size:20px;font-weight:800;color:#fff7ed}.sale-title span{color:#fde047}
-    .sale-points{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.sale-points span{font-size:12px;font-weight:700;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:#e0f2fe}
-    .countdown{display:grid;grid-template-columns:repeat(4,minmax(70px,1fr));gap:10px;max-width:440px;margin:0 auto}.countdown-box{background:#fff;color:#0f172a;border-radius:14px;padding:10px 8px;box-shadow:0 10px 20px rgba(15,23,42,.18)}.countdown-box strong{display:block;font-size:24px;color:#dc2626}.countdown-box small{display:block;font-size:11px;color:#475569;font-weight:700;text-transform:uppercase}
-    .combo-value-card{background:linear-gradient(135deg,#fff7ed,#fef3c7,#ffffff)!important;border:2px solid #f59e0b!important;box-shadow:0 18px 34px rgba(217,119,6,.24)!important;min-height:132px}.combo-value-card b{font-size:18px}.combo-value-card small{padding-right:0!important}.price-note{display:block;color:#475569;font-size:12px;font-weight:600;margin-top:4px}.original-price{color:#334155;font-weight:800}.sale-price{color:#b91c1c;font-size:22px;font-weight:900}.buy-helper{margin:10px 0 2px;text-align:center;color:#334155;font-size:13px}.buy-helper strong{color:#b91c1c}
+    .sale-banner{margin-top:18px;position:relative;z-index:1;display:grid;gap:8px;max-width:680px;margin-left:auto;margin-right:auto;padding:12px 14px;border:1px solid rgba(255,255,255,.45);border-radius:18px;background:linear-gradient(90deg,rgba(255,153,51,.92),rgba(255,255,255,.94),rgba(19,136,8,.9));box-shadow:0 14px 32px rgba(2,6,23,.28);color:#0f172a}
+    .sale-banner:before{content:"";position:absolute;left:14px;right:14px;top:-5px;height:4px;border-radius:999px;background:linear-gradient(90deg,#ff9933 0 33%,#fff 33% 66%,#138808 66%)}
+    .sale-title{font-size:17px;font-weight:900;color:#0f172a}.sale-title span{color:#b91c1c}
+    .sale-points{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}.sale-points span{font-size:11px;font-weight:800;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid rgba(15,23,42,.08);color:#14532d}
+    .countdown{display:grid;grid-template-columns:repeat(4,minmax(52px,1fr));gap:6px;max-width:320px;margin:0 auto}.countdown-box{background:rgba(255,255,255,.86);color:#0f172a;border-radius:10px;padding:6px 5px;box-shadow:0 6px 14px rgba(15,23,42,.12);border:1px solid rgba(15,23,42,.06)}.countdown-box strong{display:block;font-size:18px;color:#dc2626;line-height:1}.countdown-box small{display:block;font-size:9px;color:#475569;font-weight:800;text-transform:uppercase;margin-top:2px}
+    .combo-value-card{background:linear-gradient(90deg,#fff7ed,#ffffff,#f0fdf4)!important;border:2px solid #16a34a!important;box-shadow:0 10px 22px rgba(22,163,74,.18)!important;min-height:94px!important;padding:12px!important}.combo-value-card b{font-size:16px}.combo-value-card small{padding-right:0!important;line-height:1.35}.price-note{display:block;color:#475569;font-size:12px;font-weight:600;margin-top:3px}.original-price{color:#334155;font-weight:800}.sale-price{color:#b91c1c;font-size:19px;font-weight:900}.buy-helper{margin:10px 0 2px;text-align:center;color:#334155;font-size:13px}.buy-helper strong{color:#b91c1c}
+    .ads-head{max-width:1120px;margin:0 auto 10px;text-align:center}.ads-head-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:linear-gradient(90deg,#ff9933,#fff,#138808);color:#0f172a;font-weight:900;border:1px solid rgba(255,255,255,.72);box-shadow:0 8px 20px rgba(2,6,23,.22)}
     @keyframes comboFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
     .form{margin-top:10px;text-align:center}
     .form input,.form select{width:92%;max-width:380px;padding:12px;margin:6px;border:1px solid rgba(134,187,255,.38);border-radius:8px;background:rgba(8,19,42,.7);color:#e8f2ff}
@@ -205,7 +207,7 @@
       .lp-dropdown-inner{padding:0 12px 14px}
       .comparison-table{min-width:680px;margin:14px 0}
       .comparison-table th,.comparison-table td{padding:11px!important;font-size:13px}
-      .countdown{grid-template-columns:repeat(2,minmax(110px,1fr))}
+      .countdown{grid-template-columns:repeat(4,minmax(46px,1fr));max-width:280px}
       .skill-item .skill-logo{width:36px;height:36px}
     }
     @media (max-width:640px){
@@ -274,8 +276,8 @@
     </div>
     <div class="glow-line" aria-hidden="true"></div>
     <div class="sale-banner" aria-label="Independence Day all-course combo offer">
-      <div class="sale-title">🇮🇳 Independence Day Sale: <span>All Courses + Resources for ₹999</span></div>
-      <div class="sale-points"><span>One simple combo</span><span>Lifetime self-paced access</span><span>Recorded courses + projects</span><span>Sale ends 31 August</span></div>
+      <div class="sale-title">🇮🇳 Independence Day Sale <span>₹999 All Courses</span></div>
+      <div class="sale-points"><span>One combo</span><span>Lifetime access</span><span>Projects included</span><span>Ends 31 Aug</span></div>
       <div class="countdown" id="saleCountdown" aria-live="polite">
         <div class="countdown-box"><strong id="countDays">--</strong><small>Days</small></div>
         <div class="countdown-box"><strong id="countHours">--</strong><small>Hours</small></div>
@@ -287,10 +289,11 @@
       </header>
 
   <!-- SECTION: SECTION .ads-section -->
-  <section class="ads-section" aria-label="Latest offers">
+  <section class="ads-section" aria-label="Independence Day offers">
+    <div class="ads-head"><span class="ads-head-badge">🇮🇳 Independence Day Special Advertisement</span></div>
     <div id="adsSlider" class="ads-slider" role="button" tabindex="0" aria-label="Advertisement slider. Click to explore courses.">
       <img id="adsSlideImage" class="ads-slide" src="dl10x.png" alt="DataLearn10X advertisement" loading="eager">
-      <div class="ads-overlay">Special Offers</div>
+      <div class="ads-overlay">🇮🇳 Independence Day Special · All Courses Combo ₹999</div>
     </div>
     <div id="adsDots" class="ads-dots" aria-hidden="true"></div>
   </section>
@@ -382,7 +385,7 @@
       <p class="sub">Buy the all-course combo for ₹999. Individual courses show original prices only; the only active discount is this combo sale till 31 August.</p>
       <div class="buy-helper"><strong>Recommended:</strong> Select the all-course combo once, fill your details, and complete secure Razorpay payment.</div>
       <div class="cart-grid">
-        <label class="chk combo-offer combo-all combo-value-card"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="999" checked> <b>All Courses Combo — Independence Day Sale</b><span class="combo-mini-badge most-popular">Best Deal</span><br><small style="font-weight:600;color:#475569">Includes Excel, Python, Power BI, Tableau, SQL, AWS, Learn AI, MongoDB, Git &amp; GitHub, ML + DL, Projects, Cheat Sheets and HR Emails.<br><span class="sale-price">Pay ₹999</span> <span class="price-note">Live till 31 August · one-time payment</span></small></label>
+        <label class="chk combo-offer combo-all combo-value-card"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="999" checked> <b>🇮🇳 Independence Day Special Combo</b><span class="combo-mini-badge most-popular">Best Deal</span><br><small style="font-weight:600;color:#475569"><span class="sale-price">Pay ₹999</span><span class="price-note">All courses + resources · Live till 31 August · one-time payment</span></small></label>
         <label class="chk"><input type="checkbox" class="courseChk" value="Advance Excel" data-price="999"> Advance Excel <span class="price-note">Original Price ₹999</span></label>
         <label class="chk"><input type="checkbox" class="courseChk" value="Python" data-price="2000"> Python <span class="price-note">Original Price ₹2000</span></label>
         <label class="chk"><input type="checkbox" class="courseChk" value="Power BI" data-price="3000"> Power BI <span class="price-note">Original Price ₹3000</span></label>
