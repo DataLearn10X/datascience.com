@@ -53,7 +53,7 @@
     .buy-wrap{background:linear-gradient(135deg,#f8fbff,#eef6ff,#e0ecff);border-radius:18px;border:1px solid #bfdbfe;padding:24px;box-shadow:0 16px 36px rgba(37,99,235,.16);color:#0f172a}
     #buy-section .buy-wrap h2{color:#0b1f4a;font-weight:800;text-shadow:none}
     #buy-section .buy-wrap .sub{color:#1e3a8a;font-weight:600}
-    .cart-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:16px 0}
+    .cart-grid{display:grid;gap:10px;grid-template-columns:minmax(0,520px);justify-content:center;margin:16px 0}
     .chk{display:flex;gap:8px;align-items:center;background:#ffffff;border:1px solid #bfdbfe;border-radius:12px;padding:11px;color:#0f172a;font-weight:700;box-shadow:0 6px 14px rgba(15,23,42,.06);min-height:94px;line-height:1.35}
     .chk input{margin-top:3px}
     .chk.combo-offer{position:relative;background:#ffffff;border-color:#60a5fa;color:#0f172a;font-weight:700;padding-top:22px;box-shadow:0 12px 24px rgba(37,99,235,.18);animation:comboFloat 3.2s ease-in-out infinite;display:block}.chk.combo-offer input{margin-right:6px;vertical-align:top}.chk.combo-offer small{display:block;padding-left:26px;padding-right:118px;white-space:normal;overflow-wrap:anywhere}
@@ -70,7 +70,8 @@
     .sale-title{font-size:17px;font-weight:900;color:#0f172a}.sale-title span{color:#b91c1c}
     .sale-points{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}.sale-points span{font-size:11px;font-weight:800;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid rgba(15,23,42,.08);color:#14532d}
     .countdown{display:grid;grid-template-columns:repeat(4,minmax(52px,1fr));gap:6px;max-width:320px;margin:0 auto}.countdown-box{background:rgba(255,255,255,.86);color:#0f172a;border-radius:10px;padding:6px 5px;box-shadow:0 6px 14px rgba(15,23,42,.12);border:1px solid rgba(15,23,42,.06)}.countdown-box strong{display:block;font-size:18px;color:#dc2626;line-height:1}.countdown-box small{display:block;font-size:9px;color:#475569;font-weight:800;text-transform:uppercase;margin-top:2px}
-    .combo-value-card{background:linear-gradient(90deg,#fff7ed,#ffffff,#f0fdf4)!important;border:2px solid #16a34a!important;box-shadow:0 10px 22px rgba(22,163,74,.18)!important;min-height:94px!important;padding:12px!important}.combo-value-card b{font-size:16px}.combo-value-card small{padding-right:0!important;line-height:1.35}.price-note{display:block;color:#475569;font-size:12px;font-weight:600;margin-top:3px}.original-price{color:#334155;font-weight:800}.sale-price{color:#b91c1c;font-size:19px;font-weight:900}.buy-helper{margin:10px 0 2px;text-align:center;color:#334155;font-size:13px}.buy-helper strong{color:#b91c1c}
+    .combo-value-card{background:linear-gradient(90deg,#ff9933 0%,#fff7ed 48%,#f0fdf4 70%,#138808 100%)!important;border:2px solid #ff9933!important;box-shadow:0 12px 28px rgba(255,153,51,.26),0 10px 22px rgba(19,136,8,.18)!important;min-height:92px!important;padding:12px 14px!important;color:#0f172a!important}.combo-value-card b{font-size:16px;color:#0f172a!important}.combo-value-card small{padding-right:0!important;line-height:1.35}.combo-value-card .combo-mini-badge{background:#138808!important;border-color:#0f6b05!important;color:#fff!important}.price-note{display:block;color:#14532d;font-size:12px;font-weight:800;margin-top:3px}.original-price{color:#334155;font-weight:800}.sale-price{color:#b91c1c;font-size:20px;font-weight:900}.buy-helper{margin:10px 0 2px;text-align:center;color:#334155;font-size:13px}.buy-helper strong{color:#b91c1c}
+    .floating-buy-card{position:fixed;right:18px;bottom:96px;z-index:9998;display:flex;align-items:center;gap:10px;text-decoration:none;color:#0f172a;background:linear-gradient(90deg,#ff9933,#fff,#138808);border:2px solid rgba(255,255,255,.84);border-radius:18px;padding:10px 14px;box-shadow:0 14px 34px rgba(2,6,23,.32);font-weight:900}.floating-buy-card small{display:block;font-size:11px;color:#14532d;font-weight:800}.floating-buy-card .float-price{color:#b91c1c;font-size:18px}@media(max-width:640px){.floating-buy-card{left:12px;right:12px;bottom:82px;justify-content:center;border-radius:16px}.cart-grid{grid-template-columns:1fr!important}}
     .ads-head{max-width:1120px;margin:0 auto 10px;text-align:center}.ads-head-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:linear-gradient(90deg,#ff9933,#fff,#138808);color:#0f172a;font-weight:900;border:1px solid rgba(255,255,255,.72);box-shadow:0 8px 20px rgba(2,6,23,.22)}
     @keyframes comboFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
     .form{margin-top:10px;text-align:center}
@@ -317,38 +318,34 @@
     </div>
   </section>
 
-  <!-- SECTION: SECTION #program-for -->
-  <section class="section reveal" id="program-for">
-    <div class="container">
-      <div class="audience-wrap">
-        <h2>Who is this program for?</h2>
-        <p class="sub">Designed for learners at every stage who want practical, job-focused analytics skills.</p>
-        <div class="audience-grid">
-          <div class="audience-item"><span class="audience-icon">🎓</span><div><h3>Students & Freshers</h3><p>Build portfolio-ready projects and gain confidence for your first analytics role.</p></div></div>
-          <div class="audience-item"><span class="audience-icon">💼</span><div><h3>Working Professionals</h3><p>Switch to analytics or upskill quickly with hands-on tools used in real jobs.</p></div></div>
-          <div class="audience-item"><span class="audience-icon">📈</span><div><h3>Business Owners & Managers</h3><p>Learn to read dashboards and make smarter, data-backed business decisions.</p></div></div>
-          <div class="audience-item"><span class="audience-icon">🧠</span><div><h3>Career Restarters</h3><p>Follow a beginner-friendly path with mentor support and structured learning steps.</p></div></div>
-        </div>
+  <!-- SECTION: SECTION #buy-section -->
+  <section class="section reveal" id="buy-section">
+    <div class="container buy-wrap">
+      <h2>🇮🇳 Independence Day Combo Sale <span class="cart-subtitle">(One offer, no confusion)</span></h2>
+      <p class="sub">Buy the all-course combo for ₹999. Individual courses show original prices only; the only active discount is this combo sale till 31 August.</p>
+      <div class="buy-helper"><strong>Recommended:</strong> Select the all-course combo once, fill your details, and complete secure Razorpay payment.</div>
+      <div class="cart-grid">
+        <label class="chk combo-offer combo-all combo-value-card"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="999" checked> <b>🇮🇳 Independence Day Special Combo</b><span class="combo-mini-badge most-popular">Best Deal</span><br><small style="font-weight:600;color:#14532d"><span class="sale-price">Pay ₹999</span><span class="price-note">All courses + resources · Live till 31 August · one-time payment</span></small></label>
+      </div>
+
+      <div class="total" id="totalText">Total: ₹0</div>
+      <div class="form">
+        <input type="text" id="name" placeholder="Enter Name"><br>
+        <input type="email" id="email" placeholder="Enter Email"><br>
+        <input type="text" id="mobile" placeholder="Enter Mobile Number" maxlength="10"><br>
+        <input type="text" id="profession" placeholder="Enter Current Profession (e.g., Student / Working Professional)"><br>
+        <button class="btn" id="buyBtn" onclick="payNow()">Buy Now</button>
+        <p id="msg"></p>
+        <a class="btn-link" href="check_email.html">Already Purchased? Access Course</a>
+        <a class="btn-link secondary" href="resume_maker.html">Free ATS Resume Maker</a>
+        <a class="btn-link secondary" href="ats_resume_checker.html">Advanced ATS Score Checker</a>
+        <a class="btn-link secondary" href="practice_hub.html">Free Practice Hub</a>
       </div>
     </div>
   </section>
 
+<!-- SECTION: SECTION .section -->
 
-  <!-- SECTION: SECTION #candidate-benefits -->
-  <section class="section reveal" id="candidate-benefits">
-    <div class="container">
-      <div class="audience-wrap">
-        <h2>What candidates get with DataLearn10X</h2>
-        <p class="sub">Everything is structured to help you learn faster, build proof of skills, and apply confidently for jobs.</p>
-        <div class="audience-grid">
-          <div class="audience-item"><span class="audience-icon">🎥</span><div><h3>Recorded Course Library</h3><p>Self-paced video courses in Excel, Python, Power BI, ML, resume building, and interview prep.</p></div></div>
-          <div class="audience-item"><span class="audience-icon">🧩</span><div><h3>Hands-on Practice + Projects</h3><p>Practice tasks and mini projects that mirror real analytics work so you can build confidence.</p></div></div>
-          <div class="audience-item"><span class="audience-icon">📄</span><div><h3>Career Toolkit</h3><p>ATS resume maker, ATS score checker, cheat sheets, and HR email resources to support job applications.</p></div></div>
-          <div class="audience-item"><span class="audience-icon">🚀</span><div><h3>Job Readiness Path</h3><p>A beginner-to-advanced roadmap so candidates know what to learn next and stay consistent.</p></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- SECTION: SECTION #explore-courses -->
   <section class="section reveal" id="explore-courses" style="background:linear-gradient(180deg,rgba(6,12,24,.45),rgba(20,45,92,.28))">
@@ -378,46 +375,45 @@
     </div>
   </section>
 
-  <!-- SECTION: SECTION #buy-section -->
-  <section class="section reveal" id="buy-section">
-    <div class="container buy-wrap">
-      <h2>🇮🇳 Independence Day Combo Sale <span class="cart-subtitle">(One offer, no confusion)</span></h2>
-      <p class="sub">Buy the all-course combo for ₹999. Individual courses show original prices only; the only active discount is this combo sale till 31 August.</p>
-      <div class="buy-helper"><strong>Recommended:</strong> Select the all-course combo once, fill your details, and complete secure Razorpay payment.</div>
-      <div class="cart-grid">
-        <label class="chk combo-offer combo-all combo-value-card"><input type="checkbox" id="comboAllChk" value="Data Analytics Combo All" data-price="999" checked> <b>🇮🇳 Independence Day Special Combo</b><span class="combo-mini-badge most-popular">Best Deal</span><br><small style="font-weight:600;color:#475569"><span class="sale-price">Pay ₹999</span><span class="price-note">All courses + resources · Live till 31 August · one-time payment</span></small></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Advance Excel" data-price="999"> Advance Excel <span class="price-note">Original Price ₹999</span></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Python" data-price="2000"> Python <span class="price-note">Original Price ₹2000</span></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Power BI" data-price="3000"> Power BI <span class="price-note">Original Price ₹3000</span></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Tableau" data-price="3000"> Tableau <span class="price-note">Original Price ₹3000</span></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="SQL (MySQL)" data-price="2500"> SQL (MySQL) <span class="price-note">Original Price ₹2500</span></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="AWS Full Stack Development" data-price="2500"> AWS Full Stack Development <span class="price-note">Original Price ₹2500</span></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Learn AI" data-price="2000"> Learn AI <span class="price-note">Original Price ₹2000</span></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="MongoDB" data-price="2500"> MongoDB <span class="price-note">Original Price ₹2500</span></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Git & GitHub" data-price="1500"> Git &amp; GitHub <span class="price-note">Original Price ₹1500</span></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Machine Learning + Deep Learning" data-price="2500"> ML + DL <span class="price-note">Original Price ₹2500</span></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Cheat Sheets and Interview Questions" data-price="499"> Cheat Sheets and Interview Questions <span class="price-note">Original Price ₹499</span></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="20000+ HR Emails" data-price="499"> 20000+ HR Emails <span class="price-note">Original Price ₹499</span></label>
-        <label class="chk"><input type="checkbox" class="courseChk" value="Projects Only Course" data-price="1000"> Projects <span class="price-note">Original Price ₹1000</span></label>
-      </div>
 
-      <div class="total" id="totalText">Total: ₹0</div>
-      <div class="form">
-        <input type="text" id="name" placeholder="Enter Name"><br>
-        <input type="email" id="email" placeholder="Enter Email"><br>
-        <input type="text" id="mobile" placeholder="Enter Mobile Number" maxlength="10"><br>
-        <input type="text" id="profession" placeholder="Enter Current Profession (e.g., Student / Working Professional)"><br>
-        <button class="btn" id="buyBtn" onclick="payNow()">Buy Now</button>
-        <p id="msg"></p>
-        <a class="btn-link" href="check_email.html">Already Purchased? Access Course</a>
-        <a class="btn-link secondary" href="resume_maker.html">Free ATS Resume Maker</a>
-        <a class="btn-link secondary" href="ats_resume_checker.html">Advanced ATS Score Checker</a>
-        <a class="btn-link secondary" href="practice_hub.html">Free Practice Hub</a>
+
+  <!-- SECTION: SECTION #program-for -->
+  <section class="section reveal" id="program-for">
+    <div class="container">
+      <div class="audience-wrap">
+        <h2>Who is this program for?</h2>
+        <p class="sub">Designed for learners at every stage who want practical, job-focused analytics skills.</p>
+        <div class="audience-grid">
+          <div class="audience-item"><span class="audience-icon">🎓</span><div><h3>Students & Freshers</h3><p>Build portfolio-ready projects and gain confidence for your first analytics role.</p></div></div>
+          <div class="audience-item"><span class="audience-icon">💼</span><div><h3>Working Professionals</h3><p>Switch to analytics or upskill quickly with hands-on tools used in real jobs.</p></div></div>
+          <div class="audience-item"><span class="audience-icon">📈</span><div><h3>Business Owners & Managers</h3><p>Learn to read dashboards and make smarter, data-backed business decisions.</p></div></div>
+          <div class="audience-item"><span class="audience-icon">🧠</span><div><h3>Career Restarters</h3><p>Follow a beginner-friendly path with mentor support and structured learning steps.</p></div></div>
+        </div>
       </div>
     </div>
   </section>
 
-<!-- SECTION: SECTION .section -->
+
+
+
+  <!-- SECTION: SECTION #candidate-benefits -->
+  <section class="section reveal" id="candidate-benefits">
+    <div class="container">
+      <div class="audience-wrap">
+        <h2>What candidates get with DataLearn10X</h2>
+        <p class="sub">Everything is structured to help you learn faster, build proof of skills, and apply confidently for jobs.</p>
+        <div class="audience-grid">
+          <div class="audience-item"><span class="audience-icon">🎥</span><div><h3>Recorded Course Library</h3><p>Self-paced video courses in Excel, Python, Power BI, ML, resume building, and interview prep.</p></div></div>
+          <div class="audience-item"><span class="audience-icon">🧩</span><div><h3>Hands-on Practice + Projects</h3><p>Practice tasks and mini projects that mirror real analytics work so you can build confidence.</p></div></div>
+          <div class="audience-item"><span class="audience-icon">📄</span><div><h3>Career Toolkit</h3><p>ATS resume maker, ATS score checker, cheat sheets, and HR email resources to support job applications.</p></div></div>
+          <div class="audience-item"><span class="audience-icon">🚀</span><div><h3>Job Readiness Path</h3><p>A beginner-to-advanced roadmap so candidates know what to learn next and stay consistent.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
 <section class="section reveal learning-path" id="learning-path" style="background:#fff">
   <div class="container" style="max-width:920px;margin:auto">
     <h2>📚 Recommended Learning Path</h2>
@@ -884,6 +880,12 @@
   </section>
 
 
+
+  <a class="floating-buy-card" href="#buy-section" aria-label="Buy Independence Day all-course combo for 999 rupees">
+    <span>🇮🇳 Buy Combo</span>
+    <span class="float-price">₹999</span>
+    <small>Ends 31 Aug</small>
+  </a>
   <a id="whatsappLink" class="whatsapp" href="https://wa.me/919403030512?text=Hi%20DataLearn10X%2C%20I%20want%20details%20about%20courses" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp support">
     <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
   </a>
@@ -940,6 +942,7 @@ const YOUTUBE_REELS = Array.isArray(SITE_CONFIG.YOUTUBE_REELS) && SITE_CONFIG.YO
 const comboCoreChk = null;
 const comboAllChk = document.getElementById('comboAllChk');
 const individualChecks = Array.from(document.querySelectorAll('.courseChk'));
+const ALL_COMBO_COURSES = ['Advance Excel','Python','Power BI','Tableau','SQL (MySQL)','AWS Full Stack Development','Learn AI','MongoDB','Git & GitHub','Machine Learning + Deep Learning','Cheat Sheets and Interview Questions','20000+ HR Emails','Projects Only Course'];
 const CORE_COMBO_EXCLUDED = [];
 const offerPill = document.getElementById('offerPill');
 const exploreSection = document.getElementById('explore-courses');
@@ -1092,7 +1095,7 @@ function getComboCoreCourses(){
 }
 
 function getComboAllCourses(){
-  return individualChecks.map(c=>c.value);
+  return ALL_COMBO_COURSES.slice();
 }
 
 function getSelectedCourses(){
@@ -1103,7 +1106,7 @@ function getSelectedCourses(){
 
 function currentTotal(){
   if(comboAllChk && comboAllChk.checked) return 999;
-  return individualChecks.filter(c=>c.checked).reduce((sum,c)=>sum+Number(c.dataset.price||0),0);
+  return 0;
 }
 
 function selectedItems(){
@@ -1127,18 +1130,11 @@ function syncComboRule(){
 }
 
 function parsePreselect(){
-  const add = new URLSearchParams(location.search).get('add');
-  if(!add) return;
-  if(add === 'Data Analytics Combo' || add === 'Data Analytics Combo Core' || add === 'Data Analytics Combo All'){
-
-    if(comboAllChk){comboAllChk.checked=true;}
-    syncComboRule();
-  } else {
-    if(comboAllChk){ comboAllChk.checked=false; }
-    individualChecks.forEach(c=>{if(c.value===add)c.checked=true;});
-    updateTotal();
+  if(comboAllChk){ comboAllChk.checked=true; }
+  syncComboRule();
+  if(new URLSearchParams(location.search).get('add')){
+    document.getElementById('buy-section').scrollIntoView({behavior:'smooth'});
   }
-  document.getElementById('buy-section').scrollIntoView({behavior:'smooth'});
 }
 
 function animateMetrics(){
