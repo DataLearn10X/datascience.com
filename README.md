@@ -2,20 +2,23 @@
 
 DataLearn10X training website with multi-course pages, payment flow, access verification, and analytics.
 
-## Current offer pricing (synced with `index.html`)
-- Advance Excel: MRP ₹999 | Offer ₹49
-- Python: MRP ₹2000 | Offer ₹99
-- Power BI: MRP ₹2500 | Offer ₹99
-- Tableau: MRP ₹2500 | Offer ₹99
-- SQL (MySQL): MRP ₹2500 | Offer ₹99
-- AWS Full Stack Development: MRP ₹2999 | Offer ₹99
-- Learn AI: MRP ₹1999 | Offer ₹99
-- MongoDB: MRP ₹1499 | Offer ₹99
-- Git & GitHub: MRP ₹999 | Offer ₹99
-- Machine Learning + Deep Learning: MRP ₹3000 | Offer ₹99
-- Data Analytics Cheat Sheets: currently shown as FREE in the buy section but disabled for standalone purchase
-- 20000+ HR Emails: MRP ₹499 | Offer ₹19
-- Data Analytics Combo (all courses + resources): Intro offer ₹0 for the current intake window (see homepage CTA for latest status)
+## Current pricing (synced with `index.html`)
+- Advance Excel: Original Price ₹999
+- Python: Original Price ₹2000
+- Power BI: Original Price ₹3000
+- Tableau: Original Price ₹3000
+- SQL (MySQL): Original Price ₹2500
+- AWS Full Stack Development: Original Price ₹2500
+- Learn AI: Original Price ₹2000
+- MongoDB: Original Price ₹2500
+- Git & GitHub: Original Price ₹1500
+- Machine Learning + Deep Learning: Original Price ₹2500
+- Data Analytics Cheat Sheets: Original Price ₹499
+- 20000+ HR Emails: Original Price ₹499
+- Projects Only Course: Original Price ₹1000
+- Independence Day All Courses Combo: Sale Price ₹999 (live till 31 August 2026)
+
+> Individual course offer prices are intentionally removed from the website. The only active discount is the all-course Independence Day combo.
 
 
 ## Course access behavior (important)
@@ -26,7 +29,7 @@ DataLearn10X training website with multi-course pages, payment flow, access veri
 
 ## Website flow
 1. User lands on `index.html`.
-2. User selects one/multiple courses in cart or combo.
+2. User selects the all-course combo or any individual course at original price.
 3. Payment is done via Razorpay.
 4. Payment row is saved to Google Sheet via Apps Script `doPost` payload.
 5. On success, user is redirected to `Excel_success_v3.html` with links.
@@ -147,7 +150,7 @@ This updates `config.js` -> `AD_IMAGES` to match current files in the folder.
 Use this checklist before pushing a new public release:
 
 1. **Pricing consistency**
-   - Keep offer prices aligned across `index.html` cards, buy cart, and this README.
+   - Keep original course prices and the Independence Day combo sale aligned across `index.html` cards, buy cart, and this README.
 2. **Config sanity**
    - Confirm `config.js` values (`SHEET_WEBAPP_URL`, WhatsApp details, ad images) are production-ready.
 3. **Ads sync**
